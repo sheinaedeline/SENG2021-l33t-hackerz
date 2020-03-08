@@ -2,14 +2,11 @@
 SENG2021 project
 
 z5115344 Alexander Georges
-
 z5113751 Veeraj Sharma
-
 z5205003 Allen Wu
-
 z5207915 Monica He
-
 z5190299 Sheina Edeline Tengara
+
 
 
 Problem:
@@ -23,6 +20,8 @@ Problem:
 -Financial management software as a service applications are not seamlessly and securely bank-integrated.
 
 -Social issues often result from a lack of trust in the governance of finances within a shared environment.
+
+
 
 Prototype implementation:
 
