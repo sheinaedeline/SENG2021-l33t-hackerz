@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Change Breakdown</title>
+  <title>Dashboard</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -19,30 +19,32 @@
   right: 0px;
   font-size: 13px;
 }
-</style>
 
+</style>
 <div style="height:100px; background-color:#FEAB42;" class="row jumbotron text-center">
-    <div class="col-md-1">
-      <img src="Mica_Logo.png" alt="Mica logo" class="img-fluid" style="position: relative; margin-top: -31px;">
-    </div>
-    <div class="col-md-7">
-      <h1>Change Breakdown</h1>
-    </div>
-    <div class="col-md-2">
-      <ion-icon name="notifications-outline" size="large"></ion-icon>
-    </div>
-    <div class="col-md-2">
-      <ion-icon name="log-in-outline" size="large"></ion-icon>
-    </div>
+  <div class="col-md-1">
+    <img src="Mica_Logo.png" alt="Mica logo" class="img-fluid" style="position: relative; margin-top: -31px;">
   </div>
-  <div class="row offset-md-1">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-          <!--CHANGE THIS TO THE CORRECT BREADCRUMB DIRECTORY-->
-        <li class="breadcrumb-item active" aria-current="page">Home</li>
-      </ol>
-    </nav>
+  <div class="col-md-7">
+    <h1>Change Breakdown</h1>
   </div>
+  <div class="col-md-2">
+    <ion-icon name="notifications-outline" size="large"></ion-icon>
+  </div>
+  <div class="col-md-2">
+    <ion-icon name="log-in-outline" size="large"></ion-icon>
+  </div>
+</div>
+<div class="row offset-md-1">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <!--CHANGE THIS TO THE CORRECT BREADCRUMB DIRECTORY-->
+      <li class="breadcrumb-item active" aria-current="page">Home</li>
+    </ol>
+  </nav>
+</div>
+
+
 
 <div class="container">
   <div class="row">
@@ -51,13 +53,9 @@
               <div class="topright"> Members: Bianca, Michael</div>
               <div class="col-md-8">
                   <h3>Groceries</h3>
-                  <p>Total Amount paid by Bianca</p>
+                  <p><font color="red">Amount owing Bianca: $16.65</font></p>
               </div>
               <h1>$50.00</h1>
-              <div class="col-md-10">
-                <p><font color="red">Amount owing Bianca: $16.65</font></p>
-              </div>
-              
           </div>
       </div>
   </div>
@@ -65,26 +63,27 @@
 
   <div style="height:70px;" class="row">
     <div class="col-md-3 h-100 align-self-center">
-      <form>
-        <label>Enter amount you want to pay</label>
-        <input type="text" placeholder="Enter amount">
-        <label><br>Enter amount Michael should pay<br></label>
-        <input type="text" placeholder="Enter amount">
-      </form>
-      <div>
-        <br>
-        <button type="button" class="btn btn-dark">Confirm</button>
-        <button type="button" class="btn btn-dark">Cancel</button>
-      </div>
+        <form>
+            <label>Enter amount you want to pay</label>
+            <input type="text" placeholder="Enter amount">
+            <label><br>Enter amount Michael should pay<br></label>
+            <input type="text" placeholder="Enter amount">
+        </form>
+        <div>
+            <br>
+            <button style="background-color:#FEAB42;"type="button" class="btn btn-lg btn-block">Confirm</button>
+            <button style="background-color:#FEAB42;"type="button" class="btn btn-lg btn-block">Cancel</button>
+        </div>
 
     </div>
   </div>
-  <div style="height:70px;" class="row">
-    <div class="col-md-3 h-100">
-        <button style="background-color:#FEAB42;" type="button" class="btn btn-lg btn-block">Confirm</button>
-        <button style="background-color:#FEAB42;" type="button" class="btn btn-lg btn-block">Cancel</button>
+
+  <!-- <div style="height:100px;" class="row">
+    <div>
+      <button type="button" class="btn btn-dark">Confirm</button>
+      <button type="button" class="btn btn-dark">Cancel</button>
     </div>
-  </div>
+  </div> -->
 </div>
 </body>
 </html>
