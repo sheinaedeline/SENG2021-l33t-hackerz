@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Dashboard</title>
+  <title>Transaction Review</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -12,14 +12,29 @@
 </head>
 <body>
 
-<div style="height:100px;" class="row jumbotron text-center">
-  <div class="col-md-8">
-    <h1>Transaction Review</h1>
-  </div> 
-  <button type="button" class="close">
-  <span>x</span>
-  </button>
-</div>
+    <div style="height:100px; background-color:#FEAB42;" class="row jumbotron text-center">
+        <div class="col-md-1">
+          <img src="Mica_Logo.png" alt="Mica logo" class="img-fluid" style="position: relative; margin-top: -31px;">
+        </div>
+        <div class="col-md-7">
+          <h1>Transaction Review</h1>
+        </div>
+        <div class="col-md-2">
+          <ion-icon name="notifications-outline" size="large"></ion-icon>
+        </div>
+        <div class="col-md-2">
+          <ion-icon name="log-in-outline" size="large"></ion-icon>
+        </div>
+      </div>
+      <div class="row offset-md-1">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Home</li>
+            <li class="breadcrumb-item active" aria-current="page">Shared Transaction History</li>
+            <li class="breadcrumb-item active" aria-current="page">Transaction Review</li>
+          </ol>
+        </nav>
+      </div>
 
 
 <div class="container">
@@ -42,22 +57,22 @@
 
   <div style="height:70px;" class="row">
     <div class="col-md-3 h-100 align-self-center">
-      <button type="button" class="btn btn-dark">Dispute</button>
+        <button style="background-color:#FEAB42;" type="button" class="btn btn-lg btn-block">Dispute</button>
     </div>
   </div>
   <div style="height:70px;" class="row">
     <div class="col-md-3 h-100">
-      <button type="button" class="btn btn-dark">Change Breakdown</button>
+        <button style="background-color:#FEAB42;" type="button" class="btn btn-lg btn-block">Change Breakdown</button>
     </div>
   </div>
   <div style="height:70px;" class="row">
     <div class="col-md-3 h-100">
-      <button type="button" class="btn btn-dark">Add Reminders/Notes</button>
+        <button style="background-color:#FEAB42;" type="button" class="btn btn-lg btn-block">Add Reminders/Notes</button>
     </div>
   </div>
   <div style="height:70px;" class="row">
     <div class="col-md-3 h-100">
-      <button type="button" class="btn btn-dark">Add Photo Evidence</button>
+        <button style="background-color:#FEAB42;" type="button" class="btn btn-lg btn-block">Add Photo Evidence</button>
     </div>
   </div>
 </div>
