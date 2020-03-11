@@ -10,10 +10,13 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 </head>
-<body>
 
-<div style="height:100px;" class="row jumbotron text-center">
-  <div class="col-md-8">
+<body>
+<div style="height:100px; background-color:#FF9001;" class="row jumbotron text-center">
+  <div class="col-md-1">
+    <img src="Mica_Logo.png" alt="Mica logo" class="img-fluid">
+  </div>
+  <div class="col-md-7">
     <h1>Welcome to your dashboard</h1>
   </div>
   <div class="col-md-2">
@@ -23,23 +26,30 @@
     <ion-icon name="log-in-outline" size="large"></ion-icon>
   </div>
 </div>
-
+<div class="row offset-md-1">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Home</li>
+    </ol>
+  </nav>
+</div>
 <div class="container">
   <div style="height:200px;" class="row">
     <div class="col-md-3 h-100 align-self-center">
-      <button type="button" class="btn btn-primary btn-lg btn-block">Link user</button>
+      <button style="background-color:#007F0E;" type="button" class="btn btn-lg btn-block">View transactions</button>
     </div>
   </div>
   <div style="height:200px;" class="row">
     <div class="col-md-3 h-100">
-      <button type="button" class="btn btn-primary btn-lg btn-block">View transactions</button>
+      <button style="background-color:#007F0E;" type="button" class="btn btn-lg btn-block">View analytics</button>
     </div>
   </div>
   <div style="height:200px;" class="row">
     <div class="col-md-3 h-100">
-      <button type="button" class="btn btn-primary btn-lg btn-block">View analytics</button>
+      <button style="background-color:#007F0E;" type="button" class="btn btn-lg btn-block">Add users</button>
     </div>
   </div>
 </div>
 </body>
+
 </html>
