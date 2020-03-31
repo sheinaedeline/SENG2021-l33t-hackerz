@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+</head>
+
+    <body>
+    <!--orange:#FEAB42    green:#85DA67     grey:#E5E5E5-->
+        <div style="height:100px; background-color:#FEAB42;" class="row jumbotron text-center">
+            <div class="col-md-1">
+                <img src="../static/Mica_Logo.png" alt="Mica logo" class="img-fluid" style="position: relative; margin-top: -31px;">
+            </div>
+            <div class="col-md-7">
+                <h1>Welcome to Mica</h1>
+            </div>
+            <form>
+                <label>Username</label>
+                <input type="text" placeholder="Enter username">
+                <label><br>Password<br></label>
+                <input type="text" placeholder="Enter password">
+                <a href="{{ url_for('dashboard') }}">
+                    <button style="background-color:#E5E5E5;" type="button" class="btn">Login</button>
+                </a>
+            </form>
+        </div>
+
+        <div style="height:100%; background-color:#E5E5E5;">
+            <div style="margin:auto; width:50%; padding:20px;">
+                <h2>Why choose us?</h2>
+                <ul>
+                    <li>Joint living arrangements require complex book-keeping to ensure a fair delegation of financial commitments</li>
+                    <li>Applications to track joint expenditures are not ergonomic and user-friendly</li>
+                    <li>Existing methods to track joint expenditures require tedious processes to set up and maintain</li>
+                    <li>Financial management software as service applications are not seamlessly and securely bank-integrated</li>
+                    <li>Social issues often result from a lack of trust in the governance of finances within a shared environment</li>
+                </ul>
+            </div>
+        </div>
+        <div style="height:100%; margin:auto; width:50%; padding:50px;">
+            <img src="../static/login.png" alt="filler pic" class="img-fluid" style="position: relative; margin-top: -31px;">
+        </div>
+
+</html>

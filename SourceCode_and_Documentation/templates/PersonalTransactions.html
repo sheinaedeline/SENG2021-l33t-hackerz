@@ -2,9 +2,10 @@
 <html lang="en">
 
   <head>
-    <title>Transaction history</title>
+    <title>Pending Transactions</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/styles/modal.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -12,19 +13,21 @@
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
   </head>
 
-  <body>
+  <body id="root">
     <div style="height:100px; background-color:#FEAB42;" class="row jumbotron text-center">
         <div class="col-md-1">
           <img src="../static/Mica_Logo.png" alt="Mica logo" class="img-fluid" style="position: relative; margin-top: -31px;">
         </div>
         <div class="col-md-7">
-          <h1>My Transaction History</h1>
+          <h1>Pending Transactions</h1>
         </div>
         <div class="col-md-2">
           <ion-icon name="notifications-outline" size="large"></ion-icon>
         </div>
         <div class="col-md-2">
-          <ion-icon name="log-in-outline" size="large"></ion-icon>
+            <a href="{{ url_for('login') }}">
+                <ion-icon name="log-in-outline" size="large"></ion-icon>
+            </a>
         </div>
       </div>
       <div class="row offset-md-1">
@@ -40,7 +43,6 @@
         </nav>
       </div>
     <div class="container">
-
       {% for i in transactions %} 
         <div style="height:100px;" class="row">
             <div class="col-md-1 h-100">
@@ -55,9 +57,35 @@
             <p>$ {{ '%0.2f'|format(i.price|float) }}</p>
             </div>
         </div>
-      {%endfor%} 
+        {%endfor%} 
+        <div class="col-md-4 h-100">
+            <button id="add_trans" style="background-color:#9c9c9c;" type="button" class="btn btn-lg btn-block">Add transaction</button>
+    </div>
+    </div>
+    <div id="mod" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span id="close" class="close">&times;</span>
+            <div style="margin:'auto'; text-align:'center';">
+                <h1 align='center'>Add Transaction</h1>
+                <div class="d-flex justify-content-center" style="padding:4%;">
+                    <form method='POST'>
+                        <div class="form-group">
+                            <p>Transaction Name
+                                <input name="name" type="text" placeholder="Enter name">
+                            </p>
+                            <p>Cost
+                                <input name="cost" type="text" placeholder="Enter cost">
+                            </p>
+                        </div>
+                        <button style="background-color:#FEAB42;" type="submit" class="btn btn-lg">Confirm</button>
+                    </form>
+                </div>
+            </div>
+        </div>
       
     </div>
   </body>
-
+  <script type="module" src="../static/modal.js" crossorigin="use-credentials"></script>
 </html>
