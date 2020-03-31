@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+        
+        <title>Analytics</title>
+    </head>
+    <body>
+
+        <div style="height:100px; background-color:#FEAB42;" class="row jumbotron text-center">
+            <div class="col-md-1">
+              <img src="../static/Mica_Logo.png" alt="Mica logo" class="img-fluid" style="position: relative; margin-top: -31px;">
+            </div>
+            <div class="col-md-7">
+              <h1>Spending Analysis</h1>
+            </div>
+            <div class="col-md-2">
+              <ion-icon name="notifications-outline" size="large"></ion-icon>
+            </div>
+            <div class="col-md-2">
+              <ion-icon name="log-in-outline" size="large"></ion-icon>
+            </div>
+          </div>
+          <div class="row offset-md-1">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                    <a href="{{ url_for('dashboard') }}">
+                        <li class="breadcrumb-item active" aria-current="page">Home</li>
+                    </a>
+                    <li class="breadcrumb-item active" aria-current="page">/Spending Analysis</li>
+              </ol>
+            </nav>
+          </div>
+        
+          <div class="row h-100 justify-content-center">
+            <div class="row">
+                <div class="column">
+                  <img src="../static/Spending_Analysis.png" alt="Responsive image">
+                </div>
+                <div class="column">
+                    <img src="../static/Yearly_Analysis.png" alt="Responsive image">
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-sm justify-content-center align-items-center">
+                    <ion-icon class="mx-auto d-block" name="cart-outline" size="large"></ion-icon>
+                    <p>Groceries</p>
+                    <p class="text-center">$120</p>
+                </div>
+                <div class="col-sm">
+                    <ion-icon class="mx-auto d-block" name="restaurant-outline" size="large"></ion-icon>
+                    <p>Food</p>
+                    <p class="text-center">$210</p>
+                </div>
+                <div class="col-sm">
+                    <ion-icon class="mx-auto d-block" name="bus-outline" size="large"></ion-icon>
+                    <p>Transportation</p>
+                    <p class="text-center">$70</p>
+                </div>
+                <div class="col-sm">
+                    <ion-icon class="mx-auto d-block" name="home-outline" size="large"></ion-icon>
+                    <p>Rent</p>
+                    <p class="text-center">$750</p>
+                </div>
+                <div class="col-sm">
+                    <ion-icon class="mx-auto d-block" name="call-outline" size="large"></ion-icon>
+                    <p>Communication</p>
+                    <p class="text-center">$95</p>
+                </div>
+                <div class="col-sm">
+                    <ion-icon class="mx-auto d-block" name="flash-outline" size="large"></ion-icon>
+                    <p>Electricity</p>
+                    <p class="text-center">$110</p>
+                </div>
+                <div class="col-sm">
+                    <ion-icon class="mx-auto d-block" name="water-outline" size="large"></ion-icon>
+                    <p>Water</p>
+                    <p class="text-center">$150</p>
+                </div>
+                <div class="col-sm">
+                    <ion-icon class="mx-auto d-block" name="flame-outline" size="large"></ion-icon>
+                    <p>Gas</p>
+                    <p class="text-center">$80</p>
+                </div>
+                <div class="col-sm">
+                    <ion-icon class="mx-auto d-block" name="game-controller-outline" size="large"></ion-icon>
+                    <p>Entertainment</p>
+                    <p class="text-center">$77</p>
+                </div>
+                <div class="col-sm">
+                    <ion-icon class="mx-auto d-block" name="receipt-outline" size="large"></ion-icon>
+                    <p>Other</p>
+                    <p class="text-center">$45</p>
+                </div>
+            </div>
+          
+    </body>
+</html>

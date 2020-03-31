@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Breakdown</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+</head>
+<body>
+
+<style>
+.topright {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 13px;
+}
+
+</style>
+<div style="height:100px; background-color:#FEAB42;" class="row jumbotron text-center">
+  <div class="col-md-1">
+    <img src="../static/Mica_Logo.png" alt="Mica logo" class="img-fluid" style="position: relative; margin-top: -31px;">
+  </div>
+  <div class="col-md-7">
+    <h1>Change Breakdown</h1>
+  </div>
+  <div class="col-md-2">
+    <ion-icon name="notifications-outline" size="large"></ion-icon>
+  </div>
+  <div class="col-md-2">
+    <ion-icon name="log-in-outline" size="large"></ion-icon>
+  </div>
+</div>
+<div class="row offset-md-1">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <a href="{{ url_for('dashboard') }}">
+            <li class="breadcrumb-item active" aria-current="page">Home</li>
+        </a>
+        <a href="{{ url_for('shared_transactions') }}">
+            <li class="breadcrumb-item active" aria-current="page">/Shared Transaction History</li>
+        </a>
+        <a href="{{ url_for('review', trans=trans) }}">
+            <li class="breadcrumb-item active" aria-current="page">/Transaction Review</li>
+        </a>
+        <li class="breadcrumb-item active" aria-current="page">/Change Breakdown</li>
+    </ol>
+  </nav>
+</div>
+
+
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="row">
+                <div class="topright"> Members: {{ ", ".join(trans['members']) }}</div>
+              <div class="col-md-8">
+                  <h3> {{ trans['name'] }}</h3>
+                  <p><font color="red">Amount owing {{ trans.paidby }}: $ {{ '%0.2f'|format(trans['price']*trans['ratio']|float) }}</font></p>
+              </div>
+              <h1>$ {{ '%0.2f'|format(trans['price']|float) }}</h1>
+          </div>
+      </div>
+  </div>
+
+
+  <div style="height:70px;" class="row">
+    <div class="col-md-3 h-100 align-self-center">
+        <form>
+            <label>Enter amount you want to pay</label>
+            <input type="text" placeholder="Enter amount">
+            {% for i in trans['members'] %} 
+                <label><br>Enter amount {{ i }} should pay<br></label>
+                <input type="text" placeholder="Enter amount">
+            {%endfor%} 
+        </form>
+        <div>
+            <br>
+            <button style="background-color:#FEAB42;"type="button" class="btn btn-lg btn-block">Confirm</button>
+            <a href="{{ url_for('review', trans=trans) }}">
+                <button style="background-color:#FEAB42;"type="button" class="btn btn-lg btn-block">Cancel</button>
+            </a>
+        </div>
+
+    </div>
+  </div>
+
+  <!-- <div style="height:100px;" class="row">
+    <div>
+      <button type="button" class="btn btn-dark">Confirm</button>
+      <button type="button" class="btn btn-dark">Cancel</button>
+    </div>
+  </div> -->
+</div>
+</body>
+</html>
