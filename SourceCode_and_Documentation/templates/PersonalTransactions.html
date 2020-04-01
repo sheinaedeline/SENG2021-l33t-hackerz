@@ -2,7 +2,7 @@
 <html lang="en">
 
   <head>
-    <title>Pending Transactions</title>
+    <title>Personal Transactions</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="../static/styles/modal.css" />
@@ -19,7 +19,7 @@
           <img src="../static/Mica_Logo.png" alt="Mica logo" class="img-fluid" style="position: relative; margin-top: -31px;">
         </div>
         <div class="col-md-7">
-          <h1>Pending Transactions</h1>
+          <h1>Personal Transactions</h1>
         </div>
         <div class="col-md-2">
           <ion-icon name="notifications-outline" size="large"></ion-icon>
@@ -36,7 +36,7 @@
               <a href="{{ url_for('dashboard') }}">
                 <li class="breadcrumb-item active" aria-current="page">Home</li>
               </a>
-              <a href="{{ url_for('personal_transactions') }}">
+              <a href="{{ url_for('personal_transactions', rem_trans='ignore') }}">
                 <li class="breadcrumb-item active" aria-current="page">/Transaction History</li>
               </a>
           </ol>
@@ -46,12 +46,12 @@
       {% for i in transactions %} 
         <div style="height:100px;" class="row">
             <div class="col-md-1 h-100">
-            <ion-icon name="add-circle-outline" size="large"></ion-icon>
+                <a href="{{ url_for('personal_transactions', rem_trans=i) }}">
+                    <ion-icon name="add-circle-outline" size="large"></ion-icon>
+                </a>
             </div>
             <div class="col-md-4 h-100">
-                <a href='{{ url_for("review", trans=i) }}'>
                 <button style="background-color:#FEAB42;" type="button" class="btn btn-lg btn-block">{{ i.name}}</button>
-                </a>
             </div>
             <div class="col-md-3 offset-4 h-100">
             <p>$ {{ '%0.2f'|format(i.price|float) }}</p>
@@ -59,7 +59,7 @@
         </div>
         {%endfor%} 
         <div class="col-md-4 h-100">
-            <button id="add_trans" style="background-color:#9c9c9c;" type="button" class="btn btn-lg btn-block">Add transaction</button>
+            <button id="add_trans" style="background-color:#9c9c9c;" type="button" class="btn btn-lg btn-block">Add Cash Transaction</button>
     </div>
     </div>
     <div id="mod" class="modal">
@@ -68,7 +68,7 @@
         <div class="modal-content">
             <span id="close" class="close">&times;</span>
             <div style="margin:'auto'; text-align:'center';">
-                <h1 align='center'>Add Transaction</h1>
+                <h1 align='center'>Add Cash Transaction</h1>
                 <div class="d-flex justify-content-center" style="padding:4%;">
                     <form method='POST'>
                         <div class="form-group">

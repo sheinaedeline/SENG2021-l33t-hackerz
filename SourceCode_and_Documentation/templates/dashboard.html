@@ -39,8 +39,8 @@
 <div class="container">
   <div style="height:100px; " class="row">
     <div class="col-md-3 h-100 align-self-center">
-        <a href="{{ url_for('personal_transactions') }}">
-      <button style="background-color:#FEAB42;" type="button" class="btn btn-lg btn-block">View your transactions</button>
+        <a href="{{ url_for('personal_transactions', rem_trans='ignore') }}">
+            <button style="background-color:#FEAB42;" type="button" class="btn btn-lg btn-block">View your transactions</button>
         </a>
     </div>
   </div>
