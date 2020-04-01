@@ -62,29 +62,39 @@
             <button id="add_trans" style="background-color:#9c9c9c;" type="button" class="btn btn-lg btn-block">Add Cash Transaction</button>
     </div>
     </div>
-    <div id="mod" class="modal">
 
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span id="close" class="close">&times;</span>
-            <div style="margin:'auto'; text-align:'center';">
-                <h1 align='center'>Add Cash Transaction</h1>
-                <div class="d-flex justify-content-center" style="padding:4%;">
-                    <form method='POST'>
-                        <div class="form-group">
-                            <p>Transaction Name
-                                <input name="name" type="text" placeholder="Enter name">
-                            </p>
-                            <p>Cost
-                                <input name="cost" type="text" placeholder="Enter cost">
-                            </p>
-                        </div>
-                        <button style="background-color:#FEAB42;" type="submit" class="btn btn-lg">Confirm</button>
-                    </form>
-                </div>
+    <div id="mod" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Add Cash Transaction</h5>
+              <button id="close" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
+            <div class="modal-body">
+                <form method='POST'>
+                    <div class="form-group">
+                        <div>
+                            <p>Transaction Name</p>
+                                <input name="name" type="text" placeholder="Enter name">
+                            
+                        </div>
+                        <div>
+                            <p>Cost</p>
+                                <input name="cost" type="text" placeholder="Enter cost">
+                            
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+              <button style="background-color:#FEAB42;" type="submit" class="btn">Confirm</button>
+            </div>
+            </form>
+          </div>
         </div>
-      
+      </div>
+
     </div>
   </body>
   <script type="module" src="../static/modal.js" crossorigin="use-credentials"></script>
