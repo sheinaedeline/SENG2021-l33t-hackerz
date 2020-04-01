@@ -4,36 +4,36 @@ app = Flask(__name__)
 
 transactions = [
     {
-        'name': 'Movies',
+        'name': 'Rent',
         'paidby': 'John',
-        'members': ['John', 'Bianca'],
-        'price': 28.50,
-        'ratio': 0.333,
-        'num': 2
+        'members': ['John', 'Bianca', 'Michael'],
+        'price': 1040,
+        'ratio': 0.25,
+        'num': 3
     },
     {
-        'name': 'Dinner',
+        'name': 'Electricity',
         'paidby': 'Bianca',
-        'members': ['Bianca'],
-        'price': 79.40,
-        'ratio': 0.5,
-        'num': 1
+        'members': ['John', 'Bianca', 'Michael'],
+        'price': 294.79,
+        'ratio': 0.25,
+        'num': 3
     },
     {
         'name': 'Groceries',
-        'paidby': 'John',
+        'paidby': 'You',
         'members': ['John', 'Bianca', 'Michael'],
         'price': 103.80,
         'ratio': 0.25,
         'num': 3
     },
     {
-        'name': 'Gaming',
+        'name': 'Water',
         'paidby': 'Michael',
-        'members': ['Michael'],
-        'price': 59.95,
-        'ratio': 0.5,
-        'num': 1
+        'members': ['John', 'Bianca', 'Michael'],
+        'price': 306.40,
+        'ratio': 0.25,
+        'num': 3
     }
 ]
 
