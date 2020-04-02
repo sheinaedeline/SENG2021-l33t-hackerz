@@ -46,6 +46,7 @@
       {% for i in transactions %} 
         <div style="height:100px;" class="row">
             <div class="col-md-1 h-100">
+                <!--Will re-render the page when the button is clicked and also pass the transactio into the function to be removed from this page and added to shared transaction page-->
                 <a href="{{ url_for('personal_transactions', rem_trans=i) }}">
                     <ion-icon name="add-circle-outline" size="large"></ion-icon>
                 </a>

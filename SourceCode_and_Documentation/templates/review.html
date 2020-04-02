@@ -53,6 +53,8 @@
                     </div>
                     <h1>$ {{ '%0.2f'|format(trans['price']|float) }}</h1>
                     <div class="col-md-10">
+                        <!--Calculates the amount of money owed by doing the calculations here-->
+                        <!--Will change depending if you or other members paid for the transaction-->
                         {% if trans['paidby'] == "You" %}
                             <p><font color="red">Amount others owe you: $ {{ '%0.2f'|format(trans['price']*trans['ratio']*trans['num']|float) }} </font></p>
                         {% else %}

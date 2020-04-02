@@ -2,6 +2,7 @@ from flask import Flask, render_template, url_for, redirect, request
 import ast
 app = Flask(__name__)
 
+#Hardcoded list for the personal transaction page
 p_transactions = [
     {
         'name': 'Rent',
@@ -37,6 +38,7 @@ p_transactions = [
     }
 ]
 
+#Hardcoded list for the shared transaction page
 s_transactions = [
     {
         'name': 'Rent',
@@ -116,11 +118,17 @@ def dashboard():
 def analytics():
     return render_template("Analytics.html")
 
+#takes in a transaction to display
+#transaction is passed as a string and needs to be converted to a dict
 @app.route("/breakdown/<trans>", methods=['GET', 'POST'])
 def breakdown(trans):
     trans = ast.literal_eval(trans)
     return render_template("breakdown.html", trans=trans)
 
+#is the function to display a list of all personal transaction in p_transactions
+#takes in a transaction to be removed from personal transactions and added to shared transactions when the '+' button is clicked on the transaction
+#the argument passed may be 'ignore' which is used when accessing the page from dashboard or breadcrumb and will not change the p_transaction or s_transaction lists
+#This page also handles adding transaction which will pick up any POST requests and create a new transaction and append it to p_transaction
 @app.route("/personal_transactions/<rem_trans>", methods=['GET', 'POST'])
 def personal_transactions(rem_trans):
     if rem_trans != 'ignore':
@@ -141,6 +149,8 @@ def personal_transactions(rem_trans):
         p_transactions.append(new_trans)            
     return render_template("PersonalTransactions.html", transactions=p_transactions)
 
+#takes in a transaction to display
+#transaction is passed as a string and needs to be converted to a dict
 @app.route("/review/<trans>")
 def review(trans):
     trans = ast.literal_eval(trans)
