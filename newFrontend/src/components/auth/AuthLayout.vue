@@ -1,8 +1,8 @@
 <template>
   <div class="auth-layout row align-content--center">
     <div class="flex xs12 pa-3 flex-center">
-      <router-link class="py-5 flex-center" to="/">
-        <va-icon-vuestic />
+      <router-link class="flex-center" to="/">
+        <img :src="require('@/assets/MicaLogoBorder.png')" width="25%"/>
       </router-link>
     </div>
 
@@ -61,7 +61,7 @@ export default {
 <style lang="scss">
 .auth-layout {
   min-height: 100vh;
-  background-image: linear-gradient(to right, #0e4ac4, #002c85);
+  background-image: linear-gradient(to right, #ffa125, #ffb758);
 
   &__card {
     width: 100%;
