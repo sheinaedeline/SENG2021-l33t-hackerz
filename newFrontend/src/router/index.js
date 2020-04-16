@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import AuthLayout from '../components/auth/AuthLayout'
 import AppLayout from '../components/admin/AppLayout'
+import MicaAppLayout from '../components/mica/home/AppLayout'
 
 Vue.use(Router)
 
@@ -17,7 +18,7 @@ export default new Router({
     ...demoRoutes,
     {
       path: '*',
-      redirect: { name: 'dashboard' },
+      redirect: { name: 'home' },
     },
     {
       path: '/auth',
@@ -41,6 +42,63 @@ export default new Router({
         {
           path: '',
           redirect: { name: 'login' },
+        },
+      ],
+    },
+    {
+      name: 'home',
+      path: '/home',
+      component: MicaAppLayout,
+      children: [
+        {
+          name: 'my-house',
+          path: 'my-house',
+          component: EmptyParentComponent,
+          children: [
+            {
+              name: 'add-transactions',
+              path: 'add-transactions',
+              component: () => import('../components/mica/my-house/add-transactions/AddTransactions.vue'),
+            },
+            {
+              name: 'shared-transactions',
+              path: 'shared-transactions',
+              default: 'true',
+              component: () => import('../components/mica/my-house/shared-transactions/SharedTransactions.vue'),
+            },
+            {
+              name: 'analysis',
+              path: 'analysis',
+              component: () => import('../components/mica/my-house/analysis/Analysis.vue'),
+            },
+            {
+              name: 'rules',
+              path: 'rules',
+              component: () => import('../components/mica/my-house/rules/Rules.vue'),
+            },
+            {
+              name: 'update-group',
+              path: 'update-group',
+              component: () => import('../components/mica/my-house/update-group/UpdateGroup.vue'),
+            },
+          ],
+        },
+        {
+          name: 'settings',
+          path: 'settings',
+          component: EmptyParentComponent,
+          children: [
+            {
+              name: 'account',
+              path: 'account',
+              component: () => import('../components/mica/settings/account/Account.vue'),
+            },
+            {
+              name: 'consent',
+              path: 'consent',
+              component: () => import('../components/mica/settings/consent/Consent.vue'),
+            },
+          ],
         },
       ],
     },
