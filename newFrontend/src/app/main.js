@@ -31,8 +31,8 @@ Vue.use(YmapPlugin)
 Vue.use(VueClipboard)
 
 Vue.use(ColorThemePlugin, {
-  primary: '#009b0f',
-  secondary: '#ff9e23',
+  primary: '#00790d',
+  secondary: '#ffa62a',
   success: '#009b0f',
 })
 
