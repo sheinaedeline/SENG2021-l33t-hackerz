@@ -17,6 +17,7 @@ def hello():
 
 #will require the url to have the correct format where the username and password are passed in the url
 #e.g http://127.0.0.1:5000/login?username=username&password=password
+#returns true or false depending if the username and password were correct
 #may need change
 @app.route('/login', methods=["GET"])
 def login():
@@ -27,12 +28,14 @@ def login():
     else:
         return jsonify(False)
 
+#returns the getbanktransactions.json
 @app.route('/get_personal_trans', methods=["GET"])
 def get_personal_trans():
     return jsonify(API_data)
 
 #will require the url to have the correct format where the groupID is passed in the url
 #e.g http://127.0.0.1:5000/login?groupID=1
+#returns a list of all transactions within the group
 @app.route('/get_shared_trans', methods=["GET"])
 def get_shared_trans():
     groupID = request.args.get("groupID")
@@ -53,6 +56,7 @@ def get_shared_trans():
 #    body: JSON.stringify({ "transaction": {<transaction data>}, "groupID": 1 })
 #}
 #can be used to add new transaction or change existing transaction with the same transaction ID
+#returns true or false depending if the transaction was added/updated
 @app.route('/put_trans', methods=["PUT"])
 def put_trans():
     data = request.get_json()
@@ -71,6 +75,7 @@ def put_trans():
 #    },
 #    body: JSON.stringify({ "rule": "rule", "groupID": 1 })
 #}
+#returns true or false depending if the rule was added
 @app.route('/put_rule', methods=["PUT"])
 def put_rule():
     data = request.get_json()
@@ -80,6 +85,7 @@ def put_rule():
 
 #will require the url to have the correct format where the groupID is passed in the url
 #e.g http://127.0.0.1:5000/get_rules?groupID=1
+#returns a list of all the rules
 @app.route('/get_rules', methods=["GET"])
 def get_rules():
     groupID = request.args.get("groupID")
@@ -87,6 +93,13 @@ def get_rules():
 
 #will require the url to have the correct format where the groupID is passed in the url
 #e.g http://127.0.0.1:5000/get_total?groupID=1
+#returns a dict with the names of all members, each member has another dict with names of all other members with a value corresponding to how much the member owes
+#e.g
+#{
+#   "Bianca": { "John": 40, "Bill": 20},     ///Bianca owes John $40 and Bill $20
+#   "John": { "Bianca": 20, "Bill": 30},     ///John owes Bianca $20 and Bill $30
+#   "Bill": { "John": 20, "Bianca": 30},     ///Bill owes John $20 and Bianca $30
+# }
 @app.route('/get_total', methods=["GET"])
 def get_total():
     result = {}
@@ -107,6 +120,23 @@ def get_total():
 
 #will require the url to have the correct format where the groupID is passed in the url
 #e.g http://127.0.0.1:5000/get_stats?groupID=1
+#returns a dict with each key being the type of transaction and the corresponding value being the amount spent
+#e.g
+#{
+#   "Agricultural Services": 203,
+#   "Contracted Services": 30,
+#   "Transportation Services": 0,
+#   "Utility Services": 700,
+#   "Retail Outlet Services": 0,
+#   "Clothing Stores": 0,
+#   "Miscellaneous Stores": 41,
+#   "Business Services": 90,
+#   "Professional Services and Membership Organizations": 0,
+#   "Government Services": 1030,
+#   "Airlines": 0,
+#   "Car Rental": 200,
+#   "Lodging": 600,
+#}
 @app.route('/get_stats', methods=["GET"])
 def get_stats():
     groupID = request.args.get("groupID")
