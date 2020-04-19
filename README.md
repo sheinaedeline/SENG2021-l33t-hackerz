@@ -26,3 +26,17 @@ Problem:
 Prototype implementation:
 
 An application that helps in tracking financial transactions for personal and joint living as well as being able to notify other parties for maintaining and paying transactions needed.
+
+# Backend Server
+
+Run the backend server with:
+
+$ cd /backend
+
+$ python3 -m venv env
+
+$ source env/bin/activate
+
+$ pip3 install -r requirements.txt
+
+$ python3 app.py
