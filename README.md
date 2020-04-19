@@ -31,7 +31,7 @@ An application that helps in tracking financial transactions for personal and jo
 
 Run the backend server with:
 
-$ cd /backend
+$ cd backend
 
 $ python3 -m venv env
 
