@@ -44,7 +44,7 @@ export default {
           yours: false,
         },
         {
-          text: 'Try under the sofa. lol',
+          text: 'Try under the sofa. 😂 lol',
           yours: true,
         },
         {
