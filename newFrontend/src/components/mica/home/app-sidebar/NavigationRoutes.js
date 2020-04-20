@@ -20,32 +20,24 @@ export const navigationRoutes = {
       disabled: true,
       children: [
         {
-          name: 'add-transactions',
-          displayName: 'menu.add-transactions',
-          meta: {
-            iconClass: 'fa fa-home',
-          },
-        },
-        {
           name: 'shared-transactions',
           displayName: 'menu.shared-transactions',
-          meta: {
-            iconClass: 'fa fa-home',
-          },
+        },
+        {
+          name: 'add-transactions',
+          displayName: 'menu.add-transactions',
+        },
+        {
+          name: 'noticeboard',
+          displayName: 'menu.noticeboard',
         },
         {
           name: 'analysis',
           displayName: 'menu.analysis',
-          meta: {
-            iconClass: 'vuestic-iconset vuestic-iconset-statistics',
-          },
         },
         {
           name: 'rules',
           displayName: 'menu.rules',
-          meta: {
-            iconClass: 'vuestic-iconset vuestic-iconset-forms',
-          },
         },
       ],
     },

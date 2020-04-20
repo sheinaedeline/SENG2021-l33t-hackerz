@@ -22,8 +22,7 @@
           </va-list>
         </span>
         <div slot="body">
-          <p class="display-5">Share this transaction with your housemates.</p>
-          <br>
+          <p class="title">Share this transaction with your housemates.</p>
           <div class="flex">
             <span class="va-message-list__message text--secondary"> Add any notes about this payment. These will be shared with your group. </span>
             <va-input
@@ -45,7 +44,7 @@
             />
             <br>
             <va-button @click="quickAddTransaction(t)">
-              Quick add
+              Add transaction
             </va-button>
             <va-button outline @click="doBreakdown(t)">
               Change breakdown

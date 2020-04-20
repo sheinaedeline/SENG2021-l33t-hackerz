@@ -56,15 +56,20 @@ export default new Router({
           component: EmptyParentComponent,
           children: [
             {
+              name: 'shared-transactions',
+              path: 'shared-transactions',
+              default: 'true',
+              component: () => import('../components/mica/my-house/shared-transactions/SharedTransactions.vue'),
+            },
+            {
               name: 'add-transactions',
               path: 'add-transactions',
               component: () => import('../components/mica/my-house/add-transactions/AddTransactions.vue'),
             },
             {
-              name: 'shared-transactions',
-              path: 'shared-transactions',
-              default: 'true',
-              component: () => import('../components/mica/my-house/shared-transactions/SharedTransactions.vue'),
+              name: 'noticeboard',
+              path: 'noticeboard',
+              component: () => import('../components/mica/my-house/noticeboard/Noticeboard.vue'),
             },
             {
               name: 'analysis',
