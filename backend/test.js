@@ -13,9 +13,9 @@ const response = fetch("http://127.0.0.1:5000/put_trans", {
             "transactionID": "5923",
             "paidBy": "CHANGED",
             "description": "Breakfast",
-            "postingDateTime": "2020-03-03",
-            "amount": "96.90",
-            "merchantName": "Brunch Co",
+            //"postingDateTime": "2020-03-03",
+            //"amount": "96.90",
+            //"merchantName": "Brunch Co",
             "merchantCatergoryCode": "5812",
             "breakdown": {
                 "Michael": "0.25",
@@ -31,12 +31,12 @@ const response = fetch("http://127.0.0.1:5000/put_trans", {
             },
             "notes": ""
         }, 
-        "groupID": 1 
+        "groupID": 2 
     })
 }).then(e => e.json()).then(e => console.log(e));
 */
-
+const response = fetch("http://127.0.0.1:5000/get_users?groupID=1").then(e => e.json()).then(e => console.log(e));
 //const response = fetch("http://127.0.0.1:5000/get_rules?groupID=1").then(e => e.json()).then(e => console.log(e));
 //const response = fetch("http://127.0.0.1:5000/get_personal_trans").then(e => e.json()).then(e => console.log(e));
 //const response = fetch("http://127.0.0.1:5000/get_stats?groupID=1").then(e => e.json()).then(e => console.log(e));
-const response = fetch("http://127.0.0.1:5000/get_total?groupID=2").then(e => e.json()).then(e => console.log(e));
+//const response = fetch("http://127.0.0.1:5000/get_total?groupID=2").then(e => e.json()).then(e => console.log(e));

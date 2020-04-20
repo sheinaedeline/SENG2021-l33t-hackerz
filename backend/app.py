@@ -45,6 +45,18 @@ def get_shared_trans():
         result.append(trans)
     return jsonify(result)
 
+#will require the url to have the correct format where the groupID is passed in the url
+#e.g http://127.0.0.1:5000/login?groupID=1
+#returns a list of all users within the group
+@app.route('/get_users', methods=["GET"])
+def get_users():
+    groupID = request.args.get("groupID")
+    result = []
+    group = groups.find_one({"groupID": str(groupID)})
+    for user in group["users"]:
+        result.append(user)
+    return jsonify(result)
+
 #will require a json object to be passed
 #e.g
 # {
