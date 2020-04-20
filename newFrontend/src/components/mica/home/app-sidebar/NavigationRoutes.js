@@ -15,7 +15,7 @@ export const navigationRoutes = {
       name: 'my-house',
       displayName: 'menu.my-house',
       meta: {
-        iconClass: 'fontawesome-iconset fontawesome-iconset-home',
+        iconClass: 'fa fa-home',
       },
       disabled: true,
       children: [
@@ -23,29 +23,29 @@ export const navigationRoutes = {
           name: 'add-transactions',
           displayName: 'menu.add-transactions',
           meta: {
-            iconClass: 'font-awesome-iconset font-awesome-iconset-home',
-          }
+            iconClass: 'fa fa-home',
+          },
         },
         {
           name: 'shared-transactions',
           displayName: 'menu.shared-transactions',
           meta: {
-            iconClass: 'font-awesome-iconset font-awesome-iconset-home',
-          }
+            iconClass: 'fa fa-home',
+          },
         },
         {
           name: 'analysis',
           displayName: 'menu.analysis',
           meta: {
             iconClass: 'vuestic-iconset vuestic-iconset-statistics',
-          }
+          },
         },
         {
           name: 'rules',
           displayName: 'menu.rules',
           meta: {
             iconClass: 'vuestic-iconset vuestic-iconset-forms',
-          }
+          },
         },
       ],
     },
