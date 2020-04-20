@@ -319,7 +319,15 @@
     "spacing": "Spacing",
     "sliders": "Sliders",
     "popovers": "Popovers",
-    "chat": "Chat"
+    "chat": "Chat",
+    "my-house": "My House",
+    "add-transactions": "Add Transactions",
+    "shared-transactions": "Shared Transactions",
+    "analysis": "Analysis",
+    "rules": "Rules",
+    "settings": "Settings",
+    "account": "My Account",
+    "consent": "Consent Dashboard"
   },
   "messages": {
     "all": "See all messages",
