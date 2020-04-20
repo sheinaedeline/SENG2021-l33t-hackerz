@@ -1,6 +1,43 @@
 <template>
   <va-card title="Your transactions">
     <va-accordion>
+        <va-collapse customHeader>
+            <span slot="header">
+            <va-button outline style="width: 100%;">
+                Add a cash transaction
+            </va-button>
+            </span>
+            <div slot="body">
+                <p class="title">Share this transaction with your housemates.</p>
+                <div class="flex">
+                    <span class="va-message-list__message text--secondary"> Add any notes about this payment. These will be shared with your group. </span>
+                    <va-input
+                    v-model="newTrans.notes"
+                    placeholder="Add notes (optional)"
+                    />
+                    <span class="va-message-list__message text--secondary"> Select rules to apply to this transaction. These will be enforced. </span>
+                    <va-select
+                        v-model="newTrans.rules"
+                        multiple
+                        :options="getRules()"
+                    />
+                    <span class="va-message-list__message text--secondary"> Add a photo of the purchase or receipt. This will validate the transaction. </span>
+                    <va-file-upload
+                        type="gallery"
+                        file-types=".png, .jpg, .jpeg, .gif"
+                        dropzone
+                        v-model="newTrans.photo"
+                    />
+                    <br>
+                    <va-button @click="quickAddTransaction()">
+                    Add transaction
+                    </va-button>
+                    <va-button outline @click="doBreakdown()">
+                    Change breakdown
+                    </va-button>
+                </div>
+            </div>
+        </va-collapse>
       <va-collapse v-for="t in transactions" :key="t.transactionId" customHeader withBackground>
         <span slot="header">
           <va-list>
