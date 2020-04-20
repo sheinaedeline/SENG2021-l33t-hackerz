@@ -15,9 +15,9 @@ export const navigationRoutes = {
       name: 'my-house',
       displayName: 'menu.my-house',
       meta: {
-        iconClass: 'font-awesome-iconset font-awesome-iconset-home',
+        iconClass: 'fontawesome-iconset fontawesome-iconset-home',
       },
-      disabled: false,
+      //disabled: true,
       children: [
         {
           name: 'add-transactions',
