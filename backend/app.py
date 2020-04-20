@@ -96,9 +96,9 @@ def get_rules():
 #returns a dict with the names of all members, each member has another dict with names of all other members with a value corresponding to how much the member owes
 #e.g
 #{
-#   "Bianca": { "John": 40, "Bill": 20},     ///Bianca owes John $40 and Bill $20
-#   "John": { "Bianca": 20, "Bill": 30},     ///John owes Bianca $20 and Bill $30
-#   "Bill": { "John": 20, "Bianca": 30},     ///Bill owes John $20 and Bianca $30
+#   "Bianca": { "John": 10, "Bill": 20},     ///Bianca owes John $10 and Bill $20
+#   "John": { "Bianca": -10, "Bill": 30},     ///John owes Bianca -$10 (Bianca owes John $10) and Bill $30
+#   "Bill": { "John": -30, "Bianca": -20},     ///Bill owes John -$30 (John owes Bill $30) and Bianca -$20 (Bianca owes John $20)
 # }
 @app.route('/get_total', methods=["GET"])
 def get_total():
@@ -115,6 +115,13 @@ def get_total():
         for b in trans["breakdown"]:
             if b != trans["paidBy"]:
                 result[b][trans["paidBy"]] += float(Fraction(trans["breakdown"][b])) * float(trans["amount"])
+
+    for p in result:
+        for o in result[p]:
+            if result[p][o] >= result[o][p]:
+                tmp = result[p][o]
+                result[p][o] -= result[o][p]
+                result[o][p] -= tmp 
 
     return jsonify(result)
 
