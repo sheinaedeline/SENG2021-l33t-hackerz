@@ -20,6 +20,7 @@
             :key="key"
             :to="{ name: subMenuItem.name }"
             :title="$t(subMenuItem.displayName)"
+            :icon="item.meta && item.meta.iconClass"
           />
         </app-sidebar-link-group>
         <app-sidebar-link
