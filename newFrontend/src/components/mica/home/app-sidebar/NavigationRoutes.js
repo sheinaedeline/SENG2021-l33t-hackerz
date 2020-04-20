@@ -17,7 +17,7 @@ export const navigationRoutes = {
       meta: {
         iconClass: 'font-awesome-iconset font-awesome-iconset-home',
       },
-      disabled: true,
+      disabled: false,
       children: [
         {
           name: 'add-transactions',
