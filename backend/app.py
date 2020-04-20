@@ -123,6 +123,10 @@ def get_total():
                 result[p][o] -= result[o][p]
                 result[o][p] -= tmp 
 
+    for user1 in result:
+        for user2 in result[user1]:
+            result[user1][user2] = round(result[user1][user2],2)
+
     return jsonify(result)
 
 #will require the url to have the correct format where the groupID is passed in the url
