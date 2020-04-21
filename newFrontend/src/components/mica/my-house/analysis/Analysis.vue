@@ -6,7 +6,7 @@
           class="chart-widget"
           title="Household spending breakdown"
         >
-          <va-chart :data="pieChartData" type="pie"/>
+          <va-chart ref="pieChart" :data="pieChartData" type="pie"/>
         </va-card>
       </div>
       <div class="flex md6 xs12">
@@ -26,11 +26,11 @@ export default {
   data () {
     return {
       pieChartData: {
-        labels: this.$pieChartLabels,
+        labels: [],
         datasets: [
           {
             backgroundColor: [this.$themes.primary, this.$themes.secondary, this.$themes.danger],
-            data: this.$pieChartData,
+            data: [],
           }],
       },
     }
@@ -38,22 +38,24 @@ export default {
   computed: {
   },
   methods: {
-    // getData () {
-    //   const axios = require('axios')
-    //   axios.get('http://127.0.0.1:5000/get_stats?groupID=1').then(resp => {
-    //     for (var key in resp.data) {
-    //       if (resp.data[key] == '0') {
-    //           continue
-    //       }
-    //       this.pieChartData.labels.push(key)
-    //       this.pieChartData.datasets[0].data.push(resp.data[key])
-    //     }
-    //     console.log(this.pieChartData)
-    //   })
-    // },
+    getData () {
+      const axios = require('axios')
+      axios.get('http://127.0.0.1:5000/get_stats?groupID=1').then(resp => {
+        for (var key in resp.data) {
+          if (resp.data[key] == '0') {
+              continue
+          }
+          this.pieChartData.labels.push(key)
+          this.pieChartData.datasets[0].data.push(resp.data[key])
+          this.$refs.pieChart.$refs.chart.refresh()
+        }
+
+        console.log(this.pieChartData)
+      })
+    },
   },
   created () {
-    //   this.getData()
+      this.getData()
   },
 }
 </script>
