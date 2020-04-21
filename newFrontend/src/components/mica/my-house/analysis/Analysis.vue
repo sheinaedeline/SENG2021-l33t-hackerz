@@ -4,7 +4,15 @@
       <div class="flex md6 xs12">
         <va-card
           class="chart-widget"
-          :title="$t('charts.pieChart')"
+          title="Household spending breakdown"
+        >
+          <va-chart :data="pieChartData" type="pie"/>
+        </va-card>
+      </div>
+      <div class="flex md6 xs12">
+        <va-card
+          class="chart-widget"
+          title="Household spending breakdown"
         >
           <va-chart :data="pieChartData" type="pie"/>
         </va-card>
@@ -17,15 +25,12 @@
 export default {
   data () {
     return {
-      categories: [],
-      dataInput: [],
       pieChartData: {
-        labels: this.categories,
+        labels: this.$pieChartLabels,
         datasets: [
           {
-            label: 'Label1',
-            backgroundColor: [this.$themes.primary, this.$themes.warning, this.$themes.danger],
-            data: this.$dataInput,
+            backgroundColor: [this.$themes.primary, this.$themes.secondary, this.$themes.danger],
+            data: this.$pieChartData,
           }],
       },
     }
@@ -33,15 +38,22 @@ export default {
   computed: {
   },
   methods: {
-    getData () {
-      const axios = require('axios')
-      axios.get('http://127.0.0.1:5000/get_stats?groupID=1').then(resp => {
-        for (var key in resp.result) {
-          this.categories.push(key)
-          this.dataInput.push(resp.result[key])
-        }
-      })
-    },
+    // getData () {
+    //   const axios = require('axios')
+    //   axios.get('http://127.0.0.1:5000/get_stats?groupID=1').then(resp => {
+    //     for (var key in resp.data) {
+    //       if (resp.data[key] == '0') {
+    //           continue
+    //       }
+    //       this.pieChartData.labels.push(key)
+    //       this.pieChartData.datasets[0].data.push(resp.data[key])
+    //     }
+    //     console.log(this.pieChartData)
+    //   })
+    // },
+  },
+  created () {
+    //   this.getData()
   },
 }
 </script>
