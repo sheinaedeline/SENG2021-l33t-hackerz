@@ -52,24 +52,23 @@ export default {
       type: Array,
       default: () => [
         {
-          name: 'sentMessage',
-          details: { name: 'Vasily S', avatar: 'https://picsum.photos/123' },
+          name: 'addPayment',
+          details: { name: 'Bianca S', avatar: 'https://picsum.photos/123' },
           unread: true,
           id: 1,
         },
         {
-          name: 'uploadedZip',
+          name: 'addPayment',
           details: {
-            name: 'Oleg M',
+            name: 'John M',
             avatar: 'https://picsum.photos/100',
-            type: 'typography component',
           },
           unread: true,
           id: 2,
         },
         {
-          name: 'startedTopic',
-          details: { name: 'Andrei H', avatar: 'https://picsum.photos/24' },
+          name: 'sentMessage',
+          details: { name: 'Bianca S', avatar: 'https://picsum.photos/123' },
           unread: true,
           id: 3,
         },

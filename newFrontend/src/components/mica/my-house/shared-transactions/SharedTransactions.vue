@@ -4,7 +4,7 @@
       <va-list-label>
         Balances
       </va-list-label>
-      <va-item v-for="(owing,name) in totals['Bianca']" :key="name.concat('Owing')" clickable>
+      <va-item v-for="(owing,name) in totals['Michael']" :key="name.concat('Owing')" clickable>
         <va-item-section>
           <va-item-label>
             {{parseOwingString(owing,name)}}
@@ -32,7 +32,7 @@
               </va-item-section>
               <va-item-section side class="display-3">
                 <va-item-label>
-                  {{ '$'.concat((t.amount*(t.breakdown["Bianca"].split("/")[0]/t.breakdown["Bianca"].split("/")[1])).toFixed(2)) }}
+                  {{ '$'.concat((t.amount*(t.breakdown["Michael"].split("/")[0]/t.breakdown["Michael"].split("/")[1])).toFixed(2)) }}
                 </va-item-label>
               </va-item-section>
             </va-item>
@@ -122,11 +122,11 @@ export default {
   },
   methods: {
     parseOwingString(owing,name) {
-      if (owing > 0) {
-        return name.concat(' owes you $',owing,'.')
-      }
       if (owing < 0) {
-        return 'You owe '.concat(name,' $',-owing,'.')
+        return name.concat(' owes you $',-owing,'.')
+      }
+      if (owing > 0) {
+        return 'You owe '.concat(name,' $',owing,'.')
       }
     },
     getSharedTrans () {

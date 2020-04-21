@@ -2,7 +2,7 @@
   <div class="auth-layout row align-content--center">
     <div class="flex xs12 pa-3 flex-center">
       <router-link class="flex-center" to="/">
-        <img :src="require('@/assets/MicaLogoBorder.png')" width="25%"/>
+        <img :src="require('@/assets/MicaLogoMain.png')" width="25%"/>
       </router-link>
     </div>
 

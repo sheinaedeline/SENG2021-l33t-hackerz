@@ -3,13 +3,20 @@
     <va-accordion>
       <va-collapse customHeader>
         <span slot="header">
-          <va-button outline style="width: 100%;">
+          <va-card>
+          <va-button outline style="width: 90%;">
             Add a cash transaction
           </va-button>
+          </va-card>
         </span>
         <div slot="body">
           <p class="title">Share this transaction with your housemates.</p>
           <div class="flex">
+            <span class="va-message-list__message text--secondary"> What was this payment for? </span>
+            <va-input
+              v-model="newTrans.name"
+              placeholder="Name payment"
+            />
             <span class="va-message-list__message text--secondary"> Add any notes about this payment. These will be shared with your group. </span>
             <va-input
               v-model="newTrans.notes"
@@ -128,6 +135,7 @@ export default {
       users: [],
       breakdown: [],
       newTrans: {
+        name: '',
         transaction: [],
         notes: '',
         rules: [],
@@ -141,7 +149,7 @@ export default {
   },
   methods: {
     pushTransaction () {
-      console.log(this.breakdown)
+      // console.log(this.breakdown)
       var paidBy = 'Michael'
       var disputeStatus = []
       var transaction = {
@@ -162,16 +170,16 @@ export default {
         transaction: transaction,
         groupID: groupID,
       }).then(resp => {
-        console.log(resp.data)
+        // console.log(resp.data)
       })
 
-      console.log(transaction)
+      // console.log(transaction)
     },
     getRules () {
       const axios = require('axios')
       axios.get('http://127.0.0.1:5000/get_rules?groupID=1').then(resp => {
         this.rules = resp.data
-        console.log(this.users)
+        // console.log(this.users)
       })
     },
     quickAddTransaction (t) {
@@ -201,10 +209,10 @@ export default {
       axios.get('http://127.0.0.1:5000/get_users?groupID=1').then(resp => {
         this.users = resp.data
         for (var user in resp.data) {
-          console.log(resp.data[user])
+          // console.log(resp.data[user])
           this.newTrans.breakdown[resp.data[user]] = '1'
         }
-        console.log(this.users)
+        // console.log(this.users)
       })
     },
   },
