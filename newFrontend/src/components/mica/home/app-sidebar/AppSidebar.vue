@@ -98,19 +98,19 @@ export default {
       switch (this.$route.name) {
         case 'add-transactions':
           return 'This is a list of your personal banking transactions. Quickly add them to your shared household expenses. These have been taken straight from your bank and are not retained unless added to your shared payments.'
-          break
+          // break
         case 'noticeboard':
           return 'Conveniently message others in your household about pressing matters.'
-          break
+          // break
         case 'analytics':
           return 'View a breakdown of your payments. Use this information to better budget.'
-          break
+          // break
         case 'rules':
           return 'Set and view agreed on rules with your housemates. This will make the boundaries of your arrangement clear and manageable.'
-          break
+          // break
         case 'shared-transactions':
           return 'This is a list of the payments shared in your house. Check your balance, and settle your debts.'
-          break
+          // break
         default:
           return 'Welcome to Mica! This is your one-stop-shop for convenient household financial management, as well as helping you with your budgeting.'
       }
