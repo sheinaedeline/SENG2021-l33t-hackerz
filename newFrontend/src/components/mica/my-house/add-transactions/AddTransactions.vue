@@ -1,5 +1,5 @@
 <template>
-  <va-card title="Your transactions">
+  <div title="Your transactions">
     <va-accordion>
       <va-collapse customHeader>
         <span slot="header">
@@ -113,7 +113,7 @@
       </div>
 
     </va-modal>
-  </va-card>
+  </div>
 </template>
 
 <script>

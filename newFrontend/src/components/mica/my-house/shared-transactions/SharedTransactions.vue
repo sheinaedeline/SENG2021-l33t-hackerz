@@ -1,11 +1,22 @@
 <template>
-  <va-card title="My House shared transactions">
-    <div>
-      {{this.totals}}
-    </div>
-    <va-button outline style="width: 100%;" :to="{ name: 'add-transactions' }">
-      Add a transaction
-    </va-button>
+  <div title="My House shared transactions">
+    <va-list class="display-5" fit>
+      <va-list-label>
+        Balances
+      </va-list-label>
+      <va-item v-for="(owing,name) in totals['Bianca']" :key="name.concat('Owing')" clickable>
+        <va-item-section>
+          <va-item-label>
+            {{parseOwingString(owing,name)}}
+          </va-item-label>
+        </va-item-section>
+        <br><br>
+      </va-item>
+      <va-button style="width: 80%;" :to="{ name: 'add-transactions' }">
+        Add a payment
+      </va-button> 
+    </va-list>
+    <br><br>
     <va-accordion>
       <va-collapse v-for="t in transactions" :key="t.transactionId" customHeader withBackground>
         <span slot="header">
@@ -82,7 +93,7 @@
       </div>
 
     </va-modal>
-  </va-card>
+  </div>
 </template>
 
 <script>
@@ -110,6 +121,14 @@ export default {
   computed: {
   },
   methods: {
+    parseOwingString(owing,name) {
+      if (owing > 0) {
+        return name.concat(' owes you $',owing,'.')
+      }
+      if (owing < 0) {
+        return 'You owe '.concat(name,' $',-owing,'.')
+      }
+    },
     getSharedTrans () {
       const axios = require('axios')
       axios.get('http://127.0.0.1:5000/get_shared_trans?groupID=1').then(resp => {
