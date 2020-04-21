@@ -1,8 +1,11 @@
 from flask import Flask, request, jsonify
 import pymongo
 from fractions import Fraction
+from flask_cors import CORS
+
 import json
 app = Flask(__name__)
+CORS(app)
 
 myclient = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0-o08tg.mongodb.net/test?retryWrites=true&w=majority")
 database = myclient["MicaDatabase"]
