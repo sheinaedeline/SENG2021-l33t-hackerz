@@ -4,9 +4,9 @@
       <va-collapse customHeader>
         <span slot="header">
           <va-card>
-          <va-button outline style="width: 90%;">
-            Add a cash transaction
-          </va-button>
+            <va-button outline style="width: 90%;">
+              Add a cash transaction
+            </va-button>
           </va-card>
         </span>
         <div slot="body">

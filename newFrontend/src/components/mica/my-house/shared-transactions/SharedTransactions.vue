@@ -14,7 +14,7 @@
       </va-item>
       <va-button outline style="width: 95%;" :to="{ name: 'add-transactions' }">
         Add a payment
-      </va-button> 
+      </va-button>
     </va-list>
     <br><br>
     <va-accordion>
@@ -121,12 +121,12 @@ export default {
   computed: {
   },
   methods: {
-    parseOwingString(owing,name) {
+    parseOwingString (owing, name) {
       if (owing < 0) {
-        return name.concat(' owes you $',-owing,'.')
+        return name.concat(' owes you $', -owing, '.')
       }
       if (owing > 0) {
-        return 'You owe '.concat(name,' $',owing,'.')
+        return 'You owe '.concat(name, ' $', owing, '.')
       }
     },
     getSharedTrans () {

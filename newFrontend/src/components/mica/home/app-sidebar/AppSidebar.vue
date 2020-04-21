@@ -32,19 +32,19 @@
           :title="$t(item.displayName)"
         />
       </template>
-        <app-sidebar-link-group
-          :minimized="minimized"
+      <app-sidebar-link-group
+        :minimized="minimized"
+        :active-by-default="true"
+        :children="[]"
+        icon="fa fa-question"
+        title="Help"
+      >
+        <app-sidebar-link
+          :title="helpInstructions()"
           :active-by-default="true"
-          :children="[]"
-          icon="fa fa-question"
-          title="Help"
         >
-          <app-sidebar-link
-            :title="helpInstructions()"
-            :active-by-default="true"
-          >
-          </app-sidebar-link>
-        </app-sidebar-link-group>
+        </app-sidebar-link>
+      </app-sidebar-link-group>
     </ul>
   </aside>
 </template>
@@ -94,27 +94,27 @@ export default {
     hasActiveByDefault (item) {
       return item.children.some(child => child.name === this.$route.name)
     },
-    helpInstructions() {
-      switch (this.$route.name){
+    helpInstructions () {
+      switch (this.$route.name) {
         case 'add-transactions':
-          return "This is a list of your personal banking transactions. Quickly add them to your shared household expenses. These have been taken straight from your bank and are not retained unless added to your shared payments."
+          return 'This is a list of your personal banking transactions. Quickly add them to your shared household expenses. These have been taken straight from your bank and are not retained unless added to your shared payments.'
           break
         case 'noticeboard':
-          return "Conveniently message others in your household about pressing matters."
+          return 'Conveniently message others in your household about pressing matters.'
           break
         case 'analytics':
-          return "View a breakdown of your payments. Use this information to better budget."
+          return 'View a breakdown of your payments. Use this information to better budget.'
           break
         case 'rules':
-          return "Set and view agreed on rules with your housemates. This will make the boundaries of your arrangement clear and manageable."
+          return 'Set and view agreed on rules with your housemates. This will make the boundaries of your arrangement clear and manageable.'
           break
         case 'shared-transactions':
-          return "This is a list of the payments shared in your house. Check your balance, and settle your debts."
+          return 'This is a list of the payments shared in your house. Check your balance, and settle your debts.'
           break
         default:
-          return "Welcome to Mica! This is your one-stop-shop for convenient household financial management, as well as helping you with your budgeting."
+          return 'Welcome to Mica! This is your one-stop-shop for convenient household financial management, as well as helping you with your budgeting.'
       }
-    }
+    },
   },
 }
 
