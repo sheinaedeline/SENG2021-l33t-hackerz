@@ -24,7 +24,7 @@
         </span>
       </div>
       <div class="row justify--space-between">
-        <va-button class="ma-0 mb-2 mt-1" small>{{ $t('notifications.all') }}</va-button>
+        <va-button class="ma-0 mb-2 mt-1" small :to="{ name: 'noticeboard' }">{{ $t('notifications.all') }}</va-button>
         <va-button class="ma-0 mb-2 mt-1" small outline @click="markAllAsRead" :disabled="allRead">{{ $t('notifications.mark_as_read') }}</va-button>
       </div>
     </div>
