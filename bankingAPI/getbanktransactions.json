@@ -61,7 +61,7 @@
             "postingDateTime": "2020-04-10",
             "amount": "635.00",
             "merchantName": "Den Property Group",
-            "merchantCategoryCode": "6513"
+            "merchantCategoryCode": "3502"
         },
         {
             "transactionId": "8573",
@@ -151,7 +151,7 @@
             "postingDateTime": "2020-03-29",
             "amount": "635.00",
             "merchantName": "Den Property Group",
-            "merchantCategoryCode": "6513"
+            "merchantCategoryCode": "3502"
         },
         {
             "transactionId": "7189",
@@ -232,7 +232,7 @@
             "postingDateTime": "2020-03-13",
             "amount": "635.00",
             "merchantName": "Den Property Group",
-            "merchantCategoryCode": "6513"
+            "merchantCategoryCode": "3502"
         },
         {
             "transactionId": "9446",
@@ -286,7 +286,7 @@
             "postingDateTime": "2020-03-03",
             "amount": "635.00",
             "merchantName": "Den Property Group",
-            "merchantCategoryCode": "6513"
+            "merchantCategoryCode": "3502"
         },
         {
             "transactionId": "9150",

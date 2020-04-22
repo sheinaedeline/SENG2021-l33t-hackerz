@@ -29,7 +29,7 @@ export default {
         labels: [],
         datasets: [
           {
-            backgroundColor: [this.$themes.primary, this.$themes.secondary, this.$themes.danger, this.$themes.warning, '#2432ff', '#ff24c1', '#19fbff', '#f0f71e'],
+            backgroundColor: [this.$themes.primary, this.$themes.secondary, this.$themes.danger, '#FFAA6F', '#2432ff', '#CDA6FB', '#19fbff', '#f0f71e'],
             data: [],
           }],
       },
