@@ -168,51 +168,96 @@ def get_total():
 @app.route('/get_stats', methods=["GET"])
 def get_stats():
     groupID = request.args.get("groupID")
-    result = {
-        "Agricultural Services": 0,
-        "Contracted Services": 0,
-        "Transportation Services": 0,
-        "Utility Services": 0,
-        "Retail Outlet Services": 0,
-        "Clothing Stores": 0,
-        "Miscellaneous Stores": 0,
-        "Business Services": 0,
-        "Professional Services and Membership Organizations": 0,
-        "Government Services": 0,
-        "Airlines": 0,
-        "Car Rental": 0,
-        "Lodging": 0,
+    summary = {
+        "result": {
+            "Agricultural Services": 0,
+            "Contracted Services": 0,
+            "Transportation Services": 0,
+            "Utility Services": 0,
+            "Retail Outlet Services": 0,
+            "Clothing Stores": 0,
+            "Miscellaneous Stores": 0,
+            "Business Services": 0,
+            "Professional Services and Membership Organizations": 0,
+            "Government Services": 0,
+            "Airlines": 0,
+            "Car Rental": 0,
+            "Lodging": 0,
+        },
+        "totalAmount": {
+            "January": 0,
+            "February": 0,
+            "March": 0,
+            "April": 0,
+            "May": 0,
+            "June": 0,
+            "July": 0,
+            "August": 0,
+            "September": 0,
+            "October": 0,
+            "November": 0,
+            "December": 0,
+        }
     }
+    
     group = groups.find_one({"groupID": str(groupID)})
     for trans in group["transactions"].values():
         code = int(trans["merchantCatergoryCode"])
         amount = float(trans["amount"])
         if 1 <= code <= 1499:
-            result["Agricultural Services"] += amount
+            summary["result"]["Agricultural Services"] += amount
         elif 1500 <= code <= 2999:
-            result["Contracted Services"] += amount
+            summary["result"]["Contracted Services"] += amount
         elif 4000 <= code <= 4799:
-            result["Transportation Services"] += amount
+            summary["result"]["Transportation Services"] += amount
         elif 4800 <= code <= 4999:
-            result["Utility Services"] += amount
+            summary["result"]["Utility Services"] += amount
         elif 5000 <= code <= 5599:
-            result["Retail Outlet Services"] += amount
+            summary["result"]["Retail Outlet Services"] += amount
         elif 5600 <= code <= 5699:
-            result["Clothing Stores"] += amount
+            summary["result"]["Clothing Stores"] += amount
         elif 5700 <= code <= 7299:
-            result["Miscellaneous Stores"] += amount
+            summary["result"]["Miscellaneous Stores"] += amount
         elif 7300 <= code <= 7999:
-            result["Business Services"] += amount
+            summary["result"]["Business Services"] += amount
         elif 8000 <= code <= 8999:
-            result["Professional Services and Membership Organizations"] += amount
+            summary["result"]["Professional Services and Membership Organizations"] += amount
         elif 9000 <= code <= 9999:
-            result["Government Services"] += amount
+            summary["result"]["Government Services"] += amount
         elif 3000 <= code <= 3299:
-            result["Airlines"] += amount
+            summary["result"]["Airlines"] += amount
         elif 3300 <= code <= 3499:
-            result["Car Rental"] += amount
+            summary["result"]["Car Rental"] += amount
         elif 3500 <= code <= 3999:
-            result["Lodging"] += amount
+            summary["result"]["Lodging"] += amount
+
+        # Get total amount for each month
+        newDate = trans["postingDateTime"].split("-")
+        month = newDate[1]
+        if month == '01':
+            summary["totalAmount"]["January"] += amount
+        elif month == '02':
+            summary["totalAmount"]["February"] += amount
+        elif month == '03':
+            summary["totalAmount"]["March"] += amount
+        elif month == '04':
+            summary["totalAmount"]["April"] += amount
+        elif month == '05':
+            summary["totalAmount"]["May"] += amount
+        elif month == '06':
+            summary["totalAmount"]["June"] += amount
+        elif month == '07':
+            summary["totalAmount"]["July"] += amount
+        elif month == '08':
+            summary["totalAmount"]["August"] += amount
+        elif month == '09':
+            summary["totalAmount"]["September"] += amount
+        elif month == '10':
+            summary["totalAmount"]["October"] += amount
+        elif month == '11':
+            summary["totalAmount"]["November"] += amount
+        elif month == '12':
+            summary["totalAmount"]["December"] += amount
     '''
     0001–1499 Agricultural Services
     1500–2999 Contracted Services
@@ -228,7 +273,8 @@ def get_stats():
     3300–3499 Car Rental
     3500–3999 Lodging
     '''
-    return jsonify(result)
+
+    return jsonify(summary)
 
 if __name__ == '__main__':
     app.run()
