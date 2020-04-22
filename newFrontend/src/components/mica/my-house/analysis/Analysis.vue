@@ -25,16 +25,17 @@
 export default {
   data () {
     return {
+      months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
       pieChartData: {
         labels: [],
         datasets: [
           {
-            backgroundColor: [this.$themes.primary, this.$themes.secondary, this.$themes.danger, '#FFAA6F', '#2432ff', '#CDA6FB', '#19fbff', '#f0f71e'],
+            backgroundColor: [this.$themes.primary, '#CDA6FB', this.$themes.danger, '#FFAA6F', '#2432ff', this.$themes.secondary, '#19fbff', '#f0f71e'],
             data: [],
           }],
       },
       horizontalBarChartData: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        labels: [],
         datasets: [
           {
             label: 'Amount ($)',
@@ -63,6 +64,10 @@ export default {
         }
 
         for (var i = 0; i < resp.data.totalAmount.length; i++) {
+          if( resp.data.totalAmount[i] == 0) {
+            continue
+          }
+          this.horizontalBarChartData.labels.push(this.months[i])
           console.log(i + resp.data.totalAmount[i])
           this.horizontalBarChartData.datasets[0].data.push(resp.data.totalAmount[i])
           this.$refs.horizontalBarChart.$refs.chart.refresh()

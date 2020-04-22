@@ -174,7 +174,7 @@ def get_stats():
             "Contracted Services": 0,
             "Transportation Services": 0,
             "Utility Services": 0,
-            "Retail Outlet Services": 0,
+            "Groceries": 0,
             "Clothing Stores": 0,
             "Miscellaneous Stores": 0,
             "Business Services": 0,
@@ -182,7 +182,7 @@ def get_stats():
             "Government Services": 0,
             "Airlines": 0,
             "Car Rental": 0,
-            "Lodging": 0,
+            "Rent": 0,
         },
         "totalAmount": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     }
@@ -200,7 +200,7 @@ def get_stats():
         elif 4800 <= code <= 4999:
             summary["result"]["Utility Services"] += amount
         elif 5000 <= code <= 5599:
-            summary["result"]["Retail Outlet Services"] += amount
+            summary["result"]["Groceries"] += amount
         elif 5600 <= code <= 5699:
             summary["result"]["Clothing Stores"] += amount
         elif 5700 <= code <= 7299:
@@ -216,7 +216,7 @@ def get_stats():
         elif 3300 <= code <= 3499:
             summary["result"]["Car Rental"] += amount
         elif 3500 <= code <= 3999:
-            summary["result"]["Lodging"] += amount
+            summary["result"]["Rent"] += amount
 
         # Get total amount for each month
         newDate = trans["postingDateTime"].split("-")
