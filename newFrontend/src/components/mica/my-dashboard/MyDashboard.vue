@@ -1,32 +1,39 @@
 <template>
   <div>
     <div class="row">
-      <div class="dashboard flex md4">
-        <va-list class="display-5" fit>
+      <div class="flex align--start xs6">
+        <va-list class="display-3">
           <va-list-label>
-            Balances
+            House Balances
           </va-list-label>
+          <br><br>
           <va-item v-for="(owing,name) in totals[$myName]" :key="name.concat('Owing')" clickable>
             <va-item-section>
               <va-item-label>
                 {{parseOwingString(owing,name)}}
               </va-item-label>
             </va-item-section>
-            <br><br>
+            <br>
           </va-item>
-          <va-button outline :to="{ name: 'add-transactions' }">
-            Add a payment
-          </va-button>
+          <br>
+          <div class="justify--center">
+            <va-button flat :to="{ name: 'add-transactions' }">
+              Add a payment
+            </va-button>
+          <!-- <br> -->
+          </div>
+          <br>
         </va-list>
+        <br><br>
       </div>
-      <div class="va-card flex offset--md2 md6">
+      <div class="flex xs6">
         <!-- INFOBLOCKS-->
         <div
-          class="flex offset--md4 md4"
+          class="flex"
           v-for="(info, idx) in infoTiles"
           :key="idx"
         >
-          <va-card class="mb-0" :color="info.color">
+          <va-card class="" :color="info.color">
             <p class="display-2 mb-0" style="color: white;">{{ info.value }}</p>
             <p>{{$t(info.text)}}</p>
           </va-card>
@@ -34,10 +41,14 @@
       </div>
     </div>
     <br/><br/>
-      <!-- RULES -->
   <div class="row">
-    <div class="dashboard flex md4">
-      <va-list class="display-5" fit>
+    <!-- PIEGRAPH -->
+    <div class="va-card flex align--start xs6">
+      <va-chart ref="pieChart" :data="pieChartData" type="pie"/>
+    </div>
+      <!-- RULES -->
+    <div class="flex xs6 align--start">
+      <va-list class="display-7" fit>
         <va-list-label>
           My house rules
         </va-list-label>
@@ -59,12 +70,7 @@
         </template>
       </va-list>
     </div>
-    <!-- PIEGRAPH -->
-    <div class="va-card flex offset--md2 md6">
-
-    </div>
   </div>
-</div>
 </div>
 </template>
 
@@ -86,13 +92,21 @@ export default {
       icon: '',
     }, {
       color: 'info',
-      value: '4',
+      value: 'Four',
       text: 'Housemates',
       icon: '',
     }],
-      totals: [],
-      users: [],
-      rules: [],
+    totals: [],
+    users: [],
+    rules: [],
+    pieChartData: {
+      labels: [],
+      datasets: [
+        {
+          backgroundColor: [this.$themes.primary, this.$themes.secondary, this.$themes.danger, this.$themes.warning, '#2432ff', '#ff24c1', '#19fbff', '#f0f71e'],
+          data: [],
+        }],
+    },
     }
   },
   methods: {
@@ -117,10 +131,25 @@ export default {
         this.rules = resp.data
       })
     },
+    getData () {
+      const axios = require('axios')
+      axios.get('http://127.0.0.1:5000/get_stats?groupID='+this.$groupID).then(resp => {
+
+        for (var key in resp.data.result) {
+          if (resp.data.result[key] === 0) {
+            continue
+          }
+          this.pieChartData.labels.push(key)
+          this.pieChartData.datasets[0].data.push(resp.data.result[key])
+          this.$refs.pieChart.$refs.chart.refresh()
+        }
+      })
+    },
   },
   created () {
     this.getTotals()
     this.getRules()
+    this.getData()
   },
 }
 </script>
