@@ -53,8 +53,6 @@ new Vue({
   store,
   render: h => h(App),
 })
-
-
 // // GETS STATS
 // const axios = require('axios')
 // axios.get('http://127.0.0.1:5000/get_stats?groupID=1').then(resp => {
@@ -69,3 +67,6 @@ new Vue({
 //   }
 //   // console.log(Vue.prototype.$pieChartData)
 // })
+
+Vue.prototype.$groupID = '1'
+Vue.prototype.$myName = 'Michael'

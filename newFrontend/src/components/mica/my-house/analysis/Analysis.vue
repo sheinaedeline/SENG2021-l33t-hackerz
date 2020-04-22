@@ -40,10 +40,11 @@ export default {
   methods: {
     getData () {
       const axios = require('axios')
-      axios.get('http://127.0.0.1:5000/get_stats?groupID=1').then(resp => {
+      axios.get('http://127.0.0.1:5000/get_stats?groupID='+this.$groupID).then(resp => {
         for (var key in resp.data) {
-          if (resp.data[key] == '0') {
-              continue
+          console.log(resp.data[key])
+          if (resp.data[key] === 0) {
+            continue
           }
           this.pieChartData.labels.push(key)
           this.pieChartData.datasets[0].data.push(resp.data[key])
@@ -55,7 +56,7 @@ export default {
     },
   },
   created () {
-      this.getData()
+    this.getData()
   },
 }
 </script>

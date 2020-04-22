@@ -5,7 +5,7 @@ export const navigationRoutes = {
   },
   routes: [
     {
-      name: 'dashboard',
+      name: 'my-dashboard',
       displayName: 'menu.dashboard',
       meta: {
         iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
