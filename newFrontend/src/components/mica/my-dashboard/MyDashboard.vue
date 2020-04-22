@@ -83,12 +83,12 @@ export default {
     infoTiles: [{
       color: 'success',
       value: '29',
-      text: 'Shared transactions',
+      text: 'Shared payments',
       icon: '',
     }, {
       color: 'danger',
       value: '$204.36',
-      text: 'Personal contributions',
+      text: 'Spent this month',
       icon: '',
     }, {
       color: 'info',
