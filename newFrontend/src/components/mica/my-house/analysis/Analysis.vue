@@ -29,7 +29,7 @@ export default {
         labels: [],
         datasets: [
           {
-            backgroundColor: [this.$themes.primary, this.$themes.secondary, this.$themes.danger, this.$themes.warning],
+            backgroundColor: [this.$themes.primary, this.$themes.secondary, this.$themes.danger, this.$themes.warning, '#2432ff', '#ff24c1', '#19fbff', '#f0f71e'],
             data: [],
           }],
       },
@@ -54,6 +54,7 @@ export default {
 
         for (var key in resp.data.result) {
           console.log(resp.data.result[key])
+          console.log(key)
           if (resp.data.result[key] === 0) {
             continue
           }
