@@ -222,7 +222,7 @@ export default {
       this.pushTransaction()
     },
     updateCashTransaction () {
-      this.cashTransaction.transactionId = Math.random().toString(36).substring(7)
+      this.cashTransaction.transactionId = Math.floor(Math.random() * 100000).toString()
       this.newTrans.transaction = this.cashTransaction
     },
     fullAddTransaction () {

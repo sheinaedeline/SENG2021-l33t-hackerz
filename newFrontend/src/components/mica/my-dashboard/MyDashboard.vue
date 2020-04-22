@@ -17,6 +17,28 @@
           Add a payment
         </va-button>
       </va-list>
+      <!-- RULES -->
+      <va-list class="display-5" fit>
+        <va-list-label>
+          My house rules
+        </va-list-label>
+
+        <template v-for="(rule,n) in rules">
+          <va-item :key="n" clickable>
+            <va-item-section>
+              <va-item-label>
+                {{ rule }}
+              </va-item-label>
+            </va-item-section>
+
+            <va-item-section side>
+              <va-icon name="fa fa-eye" color="gray" />
+            </va-item-section>
+          </va-item>
+
+          <va-list-separator v-if="n < rules.length - 1" :key="'separator' + n" />
+        </template>
+      </va-list>
     </div>
   </div>
 </template>
@@ -29,6 +51,7 @@ export default {
     return {
       totals: [],
       users: [],
+      rules: [],
     }
   },
   methods: {
@@ -47,9 +70,16 @@ export default {
         console.log(resp.data)
       })
     },
+    getRules () {
+      const axios = require('axios')
+      axios.get('http://127.0.0.1:5000/get_rules?groupID='+this.$groupID).then(resp => {
+        this.rules = resp.data
+      })
+    },
   },
   created () {
     this.getTotals()
+    this.getRules()
   },
 }
 </script>
