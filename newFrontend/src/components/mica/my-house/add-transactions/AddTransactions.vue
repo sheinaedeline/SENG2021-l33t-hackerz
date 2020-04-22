@@ -4,13 +4,13 @@
       <va-collapse customHeader>
         <span slot="header">
           <va-card>
-            <va-button outline style="width: 95%;">
-              Add a cash transaction
+            <va-button outline style="width: 98%;">
+              Add a cash payment
             </va-button>
           </va-card>
         </span>
         <div slot="body">
-          <p class="title">Share this transaction with your housemates.</p>
+          <p class="title">Share this payment with your housemates.</p>
           <div class="flex">
             <span class="va-message-list__message text--secondary"> How much was this payment? </span>
             <va-input

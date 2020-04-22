@@ -18,7 +18,7 @@ export default new Router({
     ...demoRoutes,
     {
       path: '*',
-      redirect: { name: 'home' },
+      redirect: { name: 'my-dashboard' },
     },
     {
       path: '/auth',
@@ -50,6 +50,12 @@ export default new Router({
       path: '/home',
       component: MicaAppLayout,
       children: [
+        {
+          name: 'my-dashboard',
+          path: 'dashboard',
+          default: 'true',
+          component: () => import('../components/mica/my-dashboard/MyDashboard.vue'),
+        },
         {
           name: 'my-house',
           path: 'my-house',
