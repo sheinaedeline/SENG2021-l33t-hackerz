@@ -67,3 +67,6 @@ new Vue({
 //   }
 //   // console.log(Vue.prototype.$pieChartData)
 // })
+
+Vue.prototype.$groupID = '1'
+Vue.prototype.$myName = 'Michael'

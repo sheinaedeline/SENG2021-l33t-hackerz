@@ -91,7 +91,7 @@ export default {
   },
   data () {
     return {
-      userName: 'Michael P',
+      userName: this.$myName+' P',
     }
   },
   computed: {

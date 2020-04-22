@@ -4,7 +4,7 @@
       <va-list-label>
         Balances
       </va-list-label>
-      <va-item v-for="(owing,name) in totals['Michael']" :key="name.concat('Owing')" clickable>
+      <va-item v-for="(owing,name) in totals[$myName]" :key="name.concat('Owing')" clickable>
         <va-item-section>
           <va-item-label>
             {{parseOwingString(owing,name)}}
@@ -32,7 +32,7 @@
               </va-item-section>
               <va-item-section side class="display-3">
                 <va-item-label>
-                  {{ '$'.concat((t.amount*(t.breakdown["Michael"].split("/")[0]/t.breakdown["Michael"].split("/")[1])).toFixed(2)) }}
+                  {{ '$'.concat((t.amount*(t.breakdown[$myName].split("/")[0]/t.breakdown[$myName].split("/")[1])).toFixed(2)) }}
                 </va-item-label>
               </va-item-section>
             </va-item>
@@ -72,11 +72,12 @@
     </va-accordion>
     <va-modal
       v-model="showModal"
-      okText="Add transaction"
+      title="Split payment"
+      okText="Add payment"
       @ok="fullAddTransaction()"
       size="small"
     >
-      inside modal {{this.newTrans}}
+      Update the breakdown of the payment here. Label how many parts each house member should pay, and the payment will be split accordingly.
       <div class="row md6 offset--md3">
         <div v-for="user in users" :key="user" class="my-4 px-3">
           <va-input
@@ -131,21 +132,21 @@ export default {
     },
     getSharedTrans () {
       const axios = require('axios')
-      axios.get('http://127.0.0.1:5000/get_shared_trans?groupID=1').then(resp => {
+      axios.get('http://127.0.0.1:5000/get_shared_trans?groupID='+this.$groupID).then(resp => {
         this.transactions = resp.data
         console.log(resp.data)
       })
     },
     getTotals () {
       const axios = require('axios')
-      axios.get('http://127.0.0.1:5000/get_total?groupID=1').then(resp => {
+      axios.get('http://127.0.0.1:5000/get_total?groupID='+this.$groupID).then(resp => {
         this.totals = resp.data
         console.log(resp.data)
       })
     },
     pushTransaction () {
       console.log(this.breakdown)
-      var paidBy = 'Michael'
+      var paidBy = this.$myName
       var disputeStatus = []
       var transaction = {
         transactionID: this.newTrans.transaction.transactionId,
@@ -159,11 +160,10 @@ export default {
         disputeStatus: disputeStatus,
         notes: this.newTrans.notes,
       }
-      var groupID = '2'
       const axios = require('axios')
       axios.put('http://127.0.0.1:5000/put_trans', {
         transaction: transaction,
-        groupID: groupID,
+        groupID: this.$groupID,
       }).then(resp => {
         console.log(resp.data)
       })
@@ -172,7 +172,7 @@ export default {
     },
     getRules () {
       const axios = require('axios')
-      axios.get('http://127.0.0.1:5000/get_rules?groupID=1').then(resp => {
+      axios.get('http://127.0.0.1:5000/get_rules?groupID='+this.$groupID).then(resp => {
         this.rules = resp.data
         console.log(this.users)
       })
@@ -201,7 +201,7 @@ export default {
       }
       this.newTrans.breakdown = []
       const axios = require('axios')
-      axios.get('http://127.0.0.1:5000/get_users?groupID=1').then(resp => {
+      axios.get('http://127.0.0.1:5000/get_users?groupID='+this.$groupID).then(resp => {
         this.users = resp.data
         for (var user in resp.data) {
           console.log(resp.data[user])
