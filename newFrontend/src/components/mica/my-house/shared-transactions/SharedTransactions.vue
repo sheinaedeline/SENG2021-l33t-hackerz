@@ -39,30 +39,31 @@
           </va-list>
         </span>
         <div slot="body">
-          <p class="title">Share this transaction with your housemates.</p>
           <div class="flex">
-            <span class="va-message-list__message text--secondary"> Add any notes about this payment. These will be shared with your group. </span>
-            <va-input
-              v-model="newTrans.notes"
-              placeholder="Add notes (optional)"
-            />
-            <span class="va-message-list__message text--secondary"> Select rules to apply to this transaction. These will be enforced. </span>
+          <va-button outline @click="doRules()">
+            Dispute this payment
+          </va-button>
+          <va-modal
+            v-model="showModal1"
+            title="Choose rule"
+            okText="Add rule"
+            @ok="getRules()"
+            size="small"
+          >
+          Pick which rules you want to dispute.
+          <div class = "row">
+            <div class="row">
             <va-select
               v-model="newTrans.rules"
               multiple
               :options="rules"
             />
-            <span class="va-message-list__message text--secondary"> Add a photo of the purchase or receipt. This will validate the transaction. </span>
-            <va-file-upload
-              type="gallery"
-              file-types=".png, .jpg, .jpeg, .gif"
-              dropzone
-              v-model="newTrans.photo"
-            />
-            <br>
-            <va-button @click="quickAddTransaction(t)">
-              Add transaction
-            </va-button>
+            </div>
+          </div>
+        </va-modal>
+        <va-button outline>
+          Add note
+        </va-button>
             <va-button outline @click="doBreakdown(t)">
               Change breakdown
             </va-button>
@@ -104,6 +105,7 @@ export default {
   data () {
     return {
       showModal: false,
+      showModal1: false,
       totals: [],
       transactions: [],
       rules: [],
@@ -169,6 +171,9 @@ export default {
       })
 
       console.log(transaction)
+    },
+    doRules () {
+      this.showModal1 = true
     },
     getRules () {
       const axios = require('axios')
