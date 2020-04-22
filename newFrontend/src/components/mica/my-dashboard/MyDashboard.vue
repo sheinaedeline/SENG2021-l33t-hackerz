@@ -13,7 +13,7 @@
           </va-item-section>
           <br><br>
         </va-item>
-        <va-button outline style="width: 98%;" :to="{ name: 'add-transactions' }">
+        <va-button outline :to="{ name: 'add-transactions' }">
           Add a payment
         </va-button>
       </va-list>

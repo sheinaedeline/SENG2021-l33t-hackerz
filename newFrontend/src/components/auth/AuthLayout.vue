@@ -1,9 +1,9 @@
 <template>
   <div class="auth-layout row align-content--center">
     <div class="flex xs12 pa-3 flex-center">
-      <router-link class="flex-center" to="/">
+      <div class="flex-center">
         <img :src="require('@/assets/MicaLogoMain.png')" width="25%"/>
-      </router-link>
+      </div>
     </div>
 
     <div class="flex xs12 pa-3">

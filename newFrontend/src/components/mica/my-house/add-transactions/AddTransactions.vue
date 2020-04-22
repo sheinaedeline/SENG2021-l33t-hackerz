@@ -1,6 +1,6 @@
 <template>
   <div title="Your transactions">
-    <va-accordion>
+    <va-accordion ref="transactions">
       <va-collapse customHeader>
         <span slot="header">
           <va-card>
@@ -188,7 +188,7 @@ export default {
         postingDateTime: this.newTrans.transaction.postingDateTime,
         amount: this.newTrans.transaction.amount,
         merchantName: this.newTrans.transaction.merchantName,
-        merchantCategoryCode: this.newTrans.transaction.merchantCategoryCode,
+        merchantCatergoryCode: this.newTrans.transaction.merchantCategoryCode,
         breakdown: this.newTrans.breakdown,
         disputeStatus: disputeStatus,
         notes: this.newTrans.notes,
@@ -199,6 +199,14 @@ export default {
         groupID: this.$groupID,
       }).then(resp => {
         // console.log(resp.data)
+        this.showToast(
+          "Payment added successfully",
+          {
+            icon: 'fa-star-o',
+            duration: 2500,
+          },
+        )
+        this.$router.reload()
       })
 
       console.log(transaction)
@@ -250,6 +258,7 @@ export default {
   created () {
     this.initBreakdown()
     this.getRules()
+    console.log(this.$refs)
   },
 }
 </script>

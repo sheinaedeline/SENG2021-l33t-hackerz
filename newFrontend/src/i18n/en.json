@@ -394,7 +394,7 @@
     "repository": "GitHub Repo"
   },
   "notifications": {
-    "all": "See all updates",
+    "all": "Open messages",
     "mark_as_read": "Mark read",
     "sentMessage": "sent you a message",
     "addPayment": "shared a payment",

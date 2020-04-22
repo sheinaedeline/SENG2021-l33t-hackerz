@@ -155,7 +155,7 @@ export default {
         postingDateTime: this.newTrans.transaction.postingDateTime,
         amount: this.newTrans.transaction.amount,
         merchantName: this.newTrans.transaction.merchantName,
-        merchantCategoryCode: this.newTrans.transaction.merchantCategoryCode,
+        merchantCatergoryCode: this.newTrans.transaction.merchantCategoryCode,
         breakdown: this.newTrans.breakdown,
         disputeStatus: disputeStatus,
         notes: this.newTrans.notes,
