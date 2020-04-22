@@ -50,8 +50,7 @@ export default {
   methods: {
     getData () {
       const axios = require('axios')
-      axios.get('http://127.0.0.1:5000/get_stats?groupID='+this.$groupID).then(resp => {
-
+      axios.get('http://127.0.0.1:5000/get_stats?groupID=' + this.$groupID).then(resp => {
         for (var key in resp.data.result) {
           console.log(resp.data.result[key])
           console.log(key)
@@ -62,14 +61,14 @@ export default {
           this.pieChartData.datasets[0].data.push(resp.data.result[key])
           this.$refs.pieChart.$refs.chart.refresh()
         }
-        
+
         for (var i = 0; i < resp.data.totalAmount.length; i++) {
           console.log(i + resp.data.totalAmount[i])
           this.horizontalBarChartData.datasets[0].data.push(resp.data.totalAmount[i])
           this.$refs.horizontalBarChart.$refs.chart.refresh()
-        } 
-        
-        console.log("test")
+        }
+
+        console.log('test')
         console.log(this.horizontalBarChartData.datasets[0])
       })
     },

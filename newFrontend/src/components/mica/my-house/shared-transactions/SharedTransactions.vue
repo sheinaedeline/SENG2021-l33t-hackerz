@@ -40,30 +40,30 @@
         </span>
         <div slot="body">
           <div class="flex">
-          <va-button outline @click="doRules()">
-            Dispute this payment
-          </va-button>
-          <va-modal
-            v-model="showModal1"
-            title="Choose rule"
-            okText="Add rule"
-            @ok="getRules()"
-            size="small"
-          >
-          Pick which rules you want to dispute.
-          <div class = "row">
-            <div class="row">
-            <va-select
-              v-model="newTrans.rules"
-              multiple
-              :options="rules"
-            />
-            </div>
-          </div>
-        </va-modal>
-        <va-button outline>
-          Add note
-        </va-button>
+            <va-button outline @click="doRules()">
+              Dispute this payment
+            </va-button>
+            <va-modal
+              v-model="showModal1"
+              title="Choose rule"
+              okText="Add rule"
+              @ok="getRules()"
+              size="small"
+            >
+              Pick which rules you want to dispute.
+              <div class = "row">
+                <div class="row">
+                  <va-select
+                    v-model="newTrans.rules"
+                    multiple
+                    :options="rules"
+                  />
+                </div>
+              </div>
+            </va-modal>
+            <va-button outline>
+              Add note
+            </va-button>
             <va-button outline @click="doBreakdown(t)">
               Change breakdown
             </va-button>
@@ -134,14 +134,14 @@ export default {
     },
     getSharedTrans () {
       const axios = require('axios')
-      axios.get('http://127.0.0.1:5000/get_shared_trans?groupID='+this.$groupID).then(resp => {
+      axios.get('http://127.0.0.1:5000/get_shared_trans?groupID=' + this.$groupID).then(resp => {
         this.transactions = resp.data
         console.log(resp.data)
       })
     },
     getTotals () {
       const axios = require('axios')
-      axios.get('http://127.0.0.1:5000/get_total?groupID='+this.$groupID).then(resp => {
+      axios.get('http://127.0.0.1:5000/get_total?groupID=' + this.$groupID).then(resp => {
         this.totals = resp.data
         console.log(resp.data)
       })
@@ -177,7 +177,7 @@ export default {
     },
     getRules () {
       const axios = require('axios')
-      axios.get('http://127.0.0.1:5000/get_rules?groupID='+this.$groupID).then(resp => {
+      axios.get('http://127.0.0.1:5000/get_rules?groupID=' + this.$groupID).then(resp => {
         this.rules = resp.data
         console.log(this.users)
         console.log(this.rules)
@@ -207,7 +207,7 @@ export default {
       }
       this.newTrans.breakdown = []
       const axios = require('axios')
-      axios.get('http://127.0.0.1:5000/get_users?groupID='+this.$groupID).then(resp => {
+      axios.get('http://127.0.0.1:5000/get_users?groupID=' + this.$groupID).then(resp => {
         this.users = resp.data
         for (var user in resp.data) {
           console.log(resp.data[user])

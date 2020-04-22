@@ -154,7 +154,7 @@ export default {
         transactionId: '',
         status: 'CASH',
         description: '',
-        postingDateTime: new Date().toISOString().slice(0,10),
+        postingDateTime: new Date().toISOString().slice(0, 10),
         amount: '',
         merchantName: '',
         merchantCategoryCode: '0',
@@ -175,9 +175,9 @@ export default {
     pushTransaction () {
       var paidBy = this.$myName
       var disputeStatus = []
-      var breakdownSum =  this.breakdown.reduce((a,b)=>parseInt(a)+parseInt(b),0)
+      var breakdownSum = this.breakdown.reduce((a, b) => parseInt(a) + parseInt(b), 0)
       for (var n in this.users) {
-        this.newTrans.breakdown[this.users[n]] = this.breakdown[n].concat('/',breakdownSum)
+        this.newTrans.breakdown[this.users[n]] = this.breakdown[n].concat('/', breakdownSum)
       }
       console.log(this.newTrans.breakdown)
 
@@ -200,7 +200,7 @@ export default {
       }).then(resp => {
         // console.log(resp.data)
         this.showToast(
-          "Payment added successfully",
+          'Payment added successfully',
           {
             icon: 'fa-star-o',
             duration: 2500,
@@ -212,7 +212,7 @@ export default {
     },
     getRules () {
       const axios = require('axios')
-      axios.get('http://127.0.0.1:5000/get_rules?groupID='+this.$groupID).then(resp => {
+      axios.get('http://127.0.0.1:5000/get_rules?groupID=' + this.$groupID).then(resp => {
         this.rules = resp.data
         // console.log(this.users)
       })
@@ -244,7 +244,7 @@ export default {
       }
       this.breakdown = []
       const axios = require('axios')
-      axios.get('http://127.0.0.1:5000/get_users?groupID='+this.$groupID).then(resp => {
+      axios.get('http://127.0.0.1:5000/get_users?groupID=' + this.$groupID).then(resp => {
         this.users = resp.data
         for (var user in resp.data) {
           // console.log(resp.data[user])
