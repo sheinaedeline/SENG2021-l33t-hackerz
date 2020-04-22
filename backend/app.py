@@ -184,20 +184,7 @@ def get_stats():
             "Car Rental": 0,
             "Lodging": 0,
         },
-        "totalAmount": {
-            "January": 0,
-            "February": 0,
-            "March": 0,
-            "April": 0,
-            "May": 0,
-            "June": 0,
-            "July": 0,
-            "August": 0,
-            "September": 0,
-            "October": 0,
-            "November": 0,
-            "December": 0,
-        }
+        "totalAmount": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     }
     
     group = groups.find_one({"groupID": str(groupID)})
@@ -235,29 +222,29 @@ def get_stats():
         newDate = trans["postingDateTime"].split("-")
         month = newDate[1]
         if month == '01':
-            summary["totalAmount"]["January"] += amount
+            summary["totalAmount"][0] += amount
         elif month == '02':
-            summary["totalAmount"]["February"] += amount
+            summary["totalAmount"][1] += amount
         elif month == '03':
-            summary["totalAmount"]["March"] += amount
+            summary["totalAmount"][2] += amount
         elif month == '04':
-            summary["totalAmount"]["April"] += amount
+            summary["totalAmount"][3] += amount
         elif month == '05':
-            summary["totalAmount"]["May"] += amount
+            summary["totalAmount"][4] += amount
         elif month == '06':
-            summary["totalAmount"]["June"] += amount
+            summary["totalAmount"][5] += amount
         elif month == '07':
-            summary["totalAmount"]["July"] += amount
+            summary["totalAmount"][6] += amount
         elif month == '08':
-            summary["totalAmount"]["August"] += amount
+            summary["totalAmount"][7] += amount
         elif month == '09':
-            summary["totalAmount"]["September"] += amount
+            summary["totalAmount"][8] += amount
         elif month == '10':
-            summary["totalAmount"]["October"] += amount
+            summary["totalAmount"][9] += amount
         elif month == '11':
-            summary["totalAmount"]["November"] += amount
+            summary["totalAmount"][10] += amount
         elif month == '12':
-            summary["totalAmount"]["December"] += amount
+            summary["totalAmount"][11] += amount
     '''
     0001–1499 Agricultural Services
     1500–2999 Contracted Services

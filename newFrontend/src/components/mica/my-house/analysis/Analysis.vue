@@ -34,7 +34,7 @@ export default {
           }],
       },
       horizontalBarChartData: {
-        labels: [],
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         datasets: [
           {
             label: 'Amount ($)',
@@ -61,16 +61,15 @@ export default {
           this.pieChartData.datasets[0].data.push(resp.data.result[key])
           this.$refs.pieChart.$refs.chart.refresh()
         }
-
-        for (var month in resp.data.totalAmount) {
-          if (resp.data.totalAmount[month] === 0) {
-            continue
-          }
-          this.horizontalBarChartData.labels.push(month)
-          this.horizontalBarChartData.datasets[0].data.push(resp.data.totalAmount[month])
+        
+        for (var i = 0; i < resp.data.totalAmount.length; i++) {
+          console.log(i + resp.data.totalAmount[i])
+          this.horizontalBarChartData.datasets[0].data.push(resp.data.totalAmount[i])
           this.$refs.horizontalBarChart.$refs.chart.refresh()
-        }
-
+        } 
+        
+        console.log("test")
+        console.log(this.horizontalBarChartData.datasets[0])
       })
     },
   },
