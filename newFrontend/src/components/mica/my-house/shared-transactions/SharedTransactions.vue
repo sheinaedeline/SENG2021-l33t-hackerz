@@ -180,6 +180,7 @@ export default {
       axios.get('http://127.0.0.1:5000/get_rules?groupID='+this.$groupID).then(resp => {
         this.rules = resp.data
         console.log(this.users)
+        console.log(this.rules)
       })
     },
     quickAddTransaction (t) {

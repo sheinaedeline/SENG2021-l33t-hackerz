@@ -48,7 +48,7 @@ export default {
   methods: {
     getRules () {
       const axios = require('axios')
-      axios.get('http://127.0.0.1:5000/get_rules?groupID=2').then(resp => {
+      axios.get('http://127.0.0.1:5000/get_rules?groupID='+this.$groupID).then(resp => {
         this.rules = resp.data
       })
     },
@@ -56,7 +56,7 @@ export default {
       const axios = require('axios')
       axios.put('http://127.0.0.1:5000/put_rule', {
         rule: this.newRule,
-        groupID: '2',
+        groupID: this.$groupID,
       }).then(resp => {
         this.getRules()
         this.newRule = ''

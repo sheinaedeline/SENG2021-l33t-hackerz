@@ -47,7 +47,7 @@ def get_shared_trans():
     for trans in group["transactions"].values():
         result.append(trans)
     result = sorted(result, key = lambda i: i['postingDateTime'],reverse=True)
-    print(sorted(result, key = lambda i: i['postingDateTime'],reverse=True))
+    # print(sorted(result, key = lambda i: i['postingDateTime'],reverse=True))
     return jsonify(result)
 
 #will require the url to have the correct format where the groupID is passed in the url
