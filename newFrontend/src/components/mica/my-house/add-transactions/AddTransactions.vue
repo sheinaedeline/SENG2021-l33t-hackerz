@@ -206,7 +206,6 @@ export default {
             duration: 2500,
           },
         )
-        this.$router.reload()
       })
 
       console.log(transaction)
