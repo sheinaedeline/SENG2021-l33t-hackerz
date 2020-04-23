@@ -121,9 +121,9 @@
     >
       Update the breakdown of the payment here. Label how many parts each house member should pay, and the payment will be split accordingly.
       <div class="row md6 offset--md3">
-        <div v-for="user in users" :key="user" class="my-4 px-3">
+        <div v-for="(user,i) in users" :key="user" class="my-4 px-3">
           <va-input
-            v-model="breakdown[user]"
+            v-model="breakdown[i]"
             :label="user"
           >
             <va-icon
@@ -175,6 +175,7 @@ export default {
     pushTransaction () {
       var paidBy = this.$myName
       var disputeStatus = []
+      console.log(this.breakdown)
       var breakdownSum = this.breakdown.reduce((a, b) => parseInt(a) + parseInt(b), 0)
       for (var n in this.users) {
         this.newTrans.breakdown[this.users[n]] = this.breakdown[n].concat('/', breakdownSum)
@@ -247,17 +248,17 @@ export default {
       axios.get('http://127.0.0.1:5000/get_users?groupID=' + this.$groupID).then(resp => {
         this.users = resp.data
         for (var user in resp.data) {
-          // console.log(resp.data[user])
+          console.log(resp.data[user])
           this.breakdown[user] = '1'
         }
-        // console.log(this.users)
+        console.log(this.breakdown)
       })
     },
   },
   created () {
     this.initBreakdown()
     this.getRules()
-    console.log(this.$refs)
+    // console.log(this.$refs)
   },
 }
 </script>
