@@ -122,7 +122,7 @@ export default {
       const axios = require('axios')
       axios.get('http://127.0.0.1:5000/get_total?groupID=' + this.$groupID).then(resp => {
         this.totals = resp.data
-        console.log(resp.data)
+        // console.log(resp.data)
       })
     },
     getRules () {

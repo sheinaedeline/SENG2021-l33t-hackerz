@@ -60,7 +60,7 @@ export default {
       }).then(resp => {
         this.getRules()
         this.newRule = ''
-        console.log(resp)
+        // console.log(resp)
       })
     },
   },

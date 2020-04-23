@@ -175,12 +175,12 @@ export default {
     pushTransaction () {
       var paidBy = this.$myName
       var disputeStatus = []
-      console.log(this.breakdown)
+      // console.log(this.breakdown)
       var breakdownSum = this.breakdown.reduce((a, b) => parseInt(a) + parseInt(b), 0)
       for (var n in this.users) {
         this.newTrans.breakdown[this.users[n]] = this.breakdown[n].concat('/', breakdownSum)
       }
-      console.log(this.newTrans.breakdown)
+      // console.log(this.newTrans.breakdown)
 
       var transaction = {
         transactionID: this.newTrans.transaction.transactionId,
@@ -248,10 +248,10 @@ export default {
       axios.get('http://127.0.0.1:5000/get_users?groupID=' + this.$groupID).then(resp => {
         this.users = resp.data
         for (var user in resp.data) {
-          console.log(resp.data[user])
+          // console.log(resp.data[user])
           this.breakdown[user] = '1'
         }
-        console.log(this.breakdown)
+        // console.log(this.breakdown)
       })
     },
   },
